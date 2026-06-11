@@ -216,7 +216,7 @@ function Hero() {
 
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <span className="eyebrow" style={{ color: "#6e6e73" }}>
+    <span className="eyebrow" style={{ color: "#b55a30" }}>
       {children}
     </span>
   );
