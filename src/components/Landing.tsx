@@ -175,7 +175,7 @@ function Hero() {
     <section
       id="top"
       className="relative flex min-h-[100svh] items-center justify-center px-6 pt-24 pb-20"
-      style={{ background: "#000000", color: "#ffffff" }}
+      style={{ background: "#5a5e4d", color: "#f5f3ee" }}
     >
       <div className="container-core flex flex-col items-center text-center">
         <div className="reveal">
