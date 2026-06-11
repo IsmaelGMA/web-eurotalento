@@ -69,7 +69,7 @@ function HeroLogo() {
       </span>
       <span
         style={{
-          color: "#86868b",
+          color: "#d68a63",
           fontSize: 11,
           fontWeight: 500,
           letterSpacing: "0.32em",
@@ -175,7 +175,7 @@ function Hero() {
     <section
       id="top"
       className="relative flex min-h-[100svh] items-center justify-center px-6 pt-24 pb-20"
-      style={{ background: "#000000", color: "#ffffff" }}
+      style={{ background: "#5a5e4d", color: "#f5f3ee" }}
     >
       <div className="container-core flex flex-col items-center text-center">
         <div className="reveal">
@@ -192,7 +192,7 @@ function Hero() {
         </h1>
         <p
           className="reveal body-lg mt-7 max-w-[58ch]"
-          style={{ color: "#86868b" }}
+          style={{ color: "#d8d4c4" }}
         >
           Acompañamos a empresas a incorporar el mejor talento, a crear y desarrollar la función de
           recursos humanos a través del Interim Management, e impartimos formación que mejora la
