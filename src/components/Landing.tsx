@@ -69,7 +69,7 @@ function HeroLogo() {
       </span>
       <span
         style={{
-          color: "#86868b",
+          color: "#d68a63",
           fontSize: 11,
           fontWeight: 500,
           letterSpacing: "0.32em",
