@@ -238,7 +238,7 @@ function ServiceBlock({
   return (
     <section
       className="px-6 py-28 md:py-36"
-      style={{ background: bg === "white" ? "#ffffff" : "#f5f5f7" }}
+      style={{ background: bg === "white" ? "#ffffff" : "#eef0e8" }}
     >
       <div className="container-core grid gap-12 md:grid-cols-12 md:gap-16">
         <div className="md:col-span-5 reveal">
