@@ -192,7 +192,7 @@ function Hero() {
         </h1>
         <p
           className="reveal body-lg mt-7 max-w-[58ch]"
-          style={{ color: "#86868b" }}
+          style={{ color: "#d8d4c4" }}
         >
           Acompañamos a empresas a incorporar el mejor talento, a crear y desarrollar la función de
           recursos humanos a través del Interim Management, e impartimos formación que mejora la
