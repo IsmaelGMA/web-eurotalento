@@ -156,9 +156,10 @@
     color: #000000;
   }
   .btn-dark {
-    background: #000000;
+    background: var(--color-rust);
     color: #ffffff;
   }
+  .btn-dark:hover { background: #a04e29; opacity: 1; }
 }
 
 @keyframes core-rise {
