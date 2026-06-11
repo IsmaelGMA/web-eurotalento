@@ -1,29 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Landing } from "@/components/Landing";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "COREbusiness · Estudio de Consultoría" },
+      {
+        name: "description",
+        content:
+          "Consultoría de RRHH: selección de talento, dirección interina (tuHR®) y formación in company.",
+      },
+      { property: "og:title", content: "COREbusiness · Estudio de Consultoría" },
+      {
+        property: "og:description",
+        content:
+          "Selección de talento, Interim Management de RRHH y formación in company.",
+      },
     ],
   }),
-  component: Index,
+  component: Landing,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
