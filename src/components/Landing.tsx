@@ -419,55 +419,43 @@ function Servicios() {
 }
 
 function Enfoque() {
+  const labelStyle = {
+    color: "#d68a63",
+    fontSize: 11,
+    fontWeight: 500,
+    letterSpacing: "0.32em",
+    textTransform: "uppercase" as const,
+  };
+  const phraseStyle = {
+    fontSize: "clamp(28px, 3.6vw, 44px)",
+    color: "#f5f3ee",
+  };
   return (
     <section
       id="enfoque"
       className="px-6 py-36 md:py-48"
-      style={{ background: "#000000", color: "#ffffff" }}
+      style={{ background: "#5a5e4d", color: "#f5f3ee" }}
     >
       <div className="container-core flex flex-col items-center gap-20 text-center">
         <div className="reveal">
-          <SectionLabel>
-            <span style={{ color: "#86868b" }}>Enfoque</span>
-          </SectionLabel>
+          <span
+            className="eyebrow"
+            style={{ color: "#d68a63", letterSpacing: "0.2em" }}
+          >
+            Enfoque
+          </span>
         </div>
         <div className="reveal flex flex-col items-center gap-5">
-          <span
-            style={{
-              color: "#86868b",
-              fontSize: 11,
-              fontWeight: 500,
-              letterSpacing: "0.32em",
-              textTransform: "uppercase",
-            }}
-          >
-            Selección de talento
-          </span>
-          <p
-            className="h-display max-w-[28ch]"
-            style={{ fontSize: "clamp(28px, 3.6vw, 44px)", color: "#ffffff" }}
-          >
+          <span style={labelStyle}>Selección de talento</span>
+          <p className="h-display max-w-[28ch]" style={phraseStyle}>
             No trabajamos a éxito. Entendemos la relación con el cliente como la de un socio
             estratégico, donde el compromiso de ambas partes garantiza el cumplimiento de los
             objetivos.
           </p>
         </div>
         <div className="reveal flex flex-col items-center gap-5">
-          <span
-            style={{
-              color: "#86868b",
-              fontSize: 11,
-              fontWeight: 500,
-              letterSpacing: "0.32em",
-              textTransform: "uppercase",
-            }}
-          >
-            Formación In Company
-          </span>
-          <p
-            className="h-display max-w-[28ch]"
-            style={{ fontSize: "clamp(28px, 3.6vw, 44px)", color: "#ffffff" }}
-          >
+          <span style={labelStyle}>Formación In Company</span>
+          <p className="h-display max-w-[28ch]" style={phraseStyle}>
             No trabajamos con quien solo quiere gastar su presupuesto de formación. Sin compromiso y
             voluntad de mejora, preferimos no actuar.
           </p>
