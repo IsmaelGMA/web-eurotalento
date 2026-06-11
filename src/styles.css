@@ -37,6 +37,15 @@
   --color-night: #000000;
   --color-night-soft: #86868b;
 
+  /* Pantone 18-1248 TCX Rust */
+  --color-rust: #b55a30;
+  --color-rust-soft: #d68a63;
+  /* Pantone 16-0110 TCX Desert Sage */
+  --color-sage: #a0a48d;
+  --color-sage-soft: #c8ccbb;
+  --color-sage-tint: #eef0e8;
+  --color-sage-deep: #5a5e4d;
+
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
