@@ -21,16 +21,33 @@ export function useReveal() {
 
 function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const color = tone === "dark" ? "#1d1d1f" : "#ffffff";
+  const subColor = tone === "dark" ? "#6e6e73" : "#86868b";
   return (
-    <span
-      style={{
-        color,
-        fontWeight: 600,
-        letterSpacing: "-0.02em",
-        fontSize: 18,
-      }}
-    >
-      COREbusiness
+    <span className="inline-flex items-baseline gap-2">
+      <span
+        style={{
+          color,
+          fontWeight: 600,
+          letterSpacing: "-0.02em",
+          fontSize: 18,
+        }}
+      >
+        COREbusiness
+      </span>
+      <span aria-hidden="true" style={{ color: subColor, fontSize: 14 }}>
+        —
+      </span>
+      <span
+        className="hidden sm:inline"
+        style={{
+          color: subColor,
+          fontSize: 13,
+          fontWeight: 400,
+          letterSpacing: "-0.01em",
+        }}
+      >
+        Estudio de Consultoría
+      </span>
     </span>
   );
 }
