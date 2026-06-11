@@ -205,7 +205,7 @@ function Hero() {
           Ni más, ni menos.
         </p>
         <div className="reveal mt-12">
-          <a href="#contacto" className="btn-core btn-light">
+          <a href="#contacto" className="btn-core btn-dark">
             Hablemos
           </a>
         </div>
