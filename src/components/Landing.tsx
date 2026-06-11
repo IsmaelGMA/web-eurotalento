@@ -205,7 +205,7 @@ function Hero() {
           Ni más, ni menos.
         </p>
         <div className="reveal mt-12">
-          <a href="#contacto" className="btn-core btn-light">
+          <a href="#contacto" className="btn-core btn-dark">
             Hablemos
           </a>
         </div>
@@ -724,7 +724,7 @@ function Footer() {
   return (
     <footer
       className="px-6 py-16"
-      style={{ background: "#000000", color: "#86868b" }}
+      style={{ background: "#5a5e4d", color: "#d8d4c4" }}
     >
       <div className="container-core flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-2">
@@ -734,14 +734,14 @@ function Footer() {
               fontSize: 11,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#86868b",
+              color: "#d68a63",
             }}
           >
             Estudio de Consultoría
           </span>
         </div>
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8 text-[13px]">
-          <a href="#privacidad" style={{ color: "#86868b" }}>
+          <a href="#privacidad" style={{ color: "#d8d4c4" }}>
             Política de privacidad
           </a>
           <span>© {new Date().getFullYear()} COREbusiness</span>
