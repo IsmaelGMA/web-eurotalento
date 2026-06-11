@@ -276,7 +276,7 @@ function BigNumber() {
     >
       <span
         style={{
-          color: "#1d1d1f",
+          color: "#b55a30",
           fontWeight: 600,
           letterSpacing: "-0.04em",
           fontSize: "clamp(120px, 20vw, 240px)",
