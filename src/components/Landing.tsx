@@ -942,8 +942,8 @@ export function Landing() {
   return (
     <main lang="es">
       <Navbar />
-      <Hero />
       <LogoBand />
+      <Hero />
       <Servicios />
       <Enfoque />
       <Clientes />
