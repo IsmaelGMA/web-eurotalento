@@ -493,6 +493,7 @@ import vitalgranaLogo from "@/assets/clients/vitalgrana.png.asset.json";
 import cinkLogo from "@/assets/clients/cink-venturing.png.asset.json";
 import sherpaLogo from "@/assets/clients/sherpa-tribe.png.asset.json";
 import rotorLogo from "@/assets/clients/rotor.png.asset.json";
+import eoiLogo from "@/assets/clients/eoi.png.asset.json";
 
 type Cliente = { name: string; logo?: string };
 
@@ -507,6 +508,7 @@ const CLIENTES: Cliente[] = [
   { name: "Cink Venturing", logo: cinkLogo.url },
   { name: "Sherpa Tribe", logo: sherpaLogo.url },
   { name: "Rotor Bike Components", logo: rotorLogo.url },
+  { name: "EOI Escuela de Organización Industrial", logo: eoiLogo.url },
 ];
 
 function Clientes() {
