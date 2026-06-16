@@ -483,6 +483,73 @@ function Servicios() {
   );
 }
 
+const CLIENTES = [
+  "Avolta",
+  "World Duty Free",
+  "Grupo Konecta",
+  "Puntoform",
+  "GOZO",
+  "GRYKOS",
+  "Vitalgrana",
+  "Cink Venturing",
+  "Sherpa Tribe",
+];
+
+function Clientes() {
+  return (
+    <section id="clientes" className="px-6 py-28 md:py-36" style={{ background: "#ffffff" }}>
+      <div className="container-core">
+        <div className="reveal text-center">
+          <SectionLabel>Confianza</SectionLabel>
+          <h2
+            className="h-display mt-5 mx-auto max-w-[24ch]"
+            style={{ fontSize: "clamp(32px, 4.4vw, 52px)", color: "#1d1d1f" }}
+          >
+            Algunos de nuestros clientes.
+          </h2>
+        </div>
+        <ul
+          className="reveal mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"
+          style={{
+            border: "1px solid #e5e5e7",
+            borderRadius: 22,
+            overflow: "hidden",
+            background: "#f5f3ee",
+          }}
+        >
+          {CLIENTES.map((name) => (
+            <li
+              key={name}
+              className="flex items-center justify-center"
+              style={{
+                minHeight: 120,
+                borderRight: "1px solid #e5e5e7",
+                borderBottom: "1px solid #e5e5e7",
+                color: "#1d1d1f",
+                fontSize: 18,
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+                padding: "24px 16px",
+                textAlign: "center",
+              }}
+            >
+              {name}
+            </li>
+          ))}
+        </ul>
+        <p
+          className="reveal mt-6 text-center"
+          style={{ color: "#6e6e73", fontSize: 13 }}
+        >
+          Logos de cliente pendientes de subir.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+
+
 function Enfoque() {
   const labelStyle = {
     color: "#d68a63",
@@ -824,6 +891,7 @@ export function Landing() {
       <Navbar />
       <Hero />
       <Servicios />
+      <Clientes />
       <Enfoque />
       <Contacto />
       <Footer />
