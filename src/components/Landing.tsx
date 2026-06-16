@@ -491,6 +491,7 @@ import gozoLogo from "@/assets/clients/gozo.png.asset.json";
 import grykosLogo from "@/assets/clients/grykos.png.asset.json";
 import vitalgranaLogo from "@/assets/clients/vitalgrana.png.asset.json";
 import cinkLogo from "@/assets/clients/cink-venturing.png.asset.json";
+import sherpaLogo from "@/assets/clients/sherpa-tribe.png.asset.json";
 
 type Cliente = { name: string; logo?: string };
 
@@ -503,7 +504,7 @@ const CLIENTES: Cliente[] = [
   { name: "GRYKOS", logo: grykosLogo.url },
   { name: "Vitalgrana", logo: vitalgranaLogo.url },
   { name: "Cink Venturing", logo: cinkLogo.url },
-  { name: "Sherpa Tribe" },
+  { name: "Sherpa Tribe", logo: sherpaLogo.url },
 ];
 
 function Clientes() {
