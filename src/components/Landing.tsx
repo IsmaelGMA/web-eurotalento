@@ -449,7 +449,7 @@ function Enfoque() {
           <p className="h-display max-w-[24ch]" style={phraseStyle}>
             Conocimiento <span style={{ color: "#d68a63" }}>+</span> más de 25 años de experiencia en
             RRHH <span style={{ color: "#d68a63" }}>+</span> tecnología{" "}
-            <span style={{ color: "#d68a63" }}>=</span> soluciones «ad hoc» con impacto en el negocio.
+            <span style={{ color: "#d68a63" }}>=</span> soluciones «ad hoc» con impacto real en el negocio.
           </p>
         </div>
       </div>
