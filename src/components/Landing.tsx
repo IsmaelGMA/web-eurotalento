@@ -446,18 +446,10 @@ function Enfoque() {
           </span>
         </div>
         <div className="reveal flex flex-col items-center gap-5">
-          <span style={labelStyle}>Selección de talento</span>
-          <p className="h-display max-w-[28ch]" style={phraseStyle}>
-            No trabajamos a éxito. Entendemos la relación con el cliente como la de un socio
-            estratégico, donde el compromiso de ambas partes garantiza el cumplimiento de los
-            objetivos.
-          </p>
-        </div>
-        <div className="reveal flex flex-col items-center gap-5">
-          <span style={labelStyle}>Formación In Company</span>
-          <p className="h-display max-w-[28ch]" style={phraseStyle}>
-            No trabajamos con quien solo quiere gastar su presupuesto de formación. Sin compromiso y
-            voluntad de mejora, preferimos no actuar.
+          <p className="h-display max-w-[24ch]" style={phraseStyle}>
+            Conocimiento <span style={{ color: "#d68a63" }}>+</span> más de 25 años de experiencia en
+            RRHH <span style={{ color: "#d68a63" }}>+</span> tecnología{" "}
+            <span style={{ color: "#d68a63" }}>=</span> soluciones «ad hoc» con impacto en el negocio.
           </p>
         </div>
       </div>
