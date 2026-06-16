@@ -943,6 +943,7 @@ export function Landing() {
     <main lang="es">
       <Navbar />
       <Hero />
+      <LogoBand />
       <Servicios />
       <Enfoque />
       <Clientes />
