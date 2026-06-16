@@ -484,12 +484,13 @@ function Servicios() {
 }
 
 import avoltaLogo from "@/assets/clients/avolta.png.asset.json";
+import wdfLogo from "@/assets/clients/world-duty-free.png.asset.json";
 
 type Cliente = { name: string; logo?: string };
 
 const CLIENTES: Cliente[] = [
   { name: "Avolta", logo: avoltaLogo.url },
-  { name: "World Duty Free" },
+  { name: "World Duty Free", logo: wdfLogo.url },
   { name: "Grupo Konecta" },
   { name: "Puntoform" },
   { name: "GOZO" },
