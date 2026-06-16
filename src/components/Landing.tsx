@@ -483,16 +483,20 @@ function Servicios() {
   );
 }
 
-const CLIENTES = [
-  "Avolta",
-  "World Duty Free",
-  "Grupo Konecta",
-  "Puntoform",
-  "GOZO",
-  "GRYKOS",
-  "Vitalgrana",
-  "Cink Venturing",
-  "Sherpa Tribe",
+import avoltaLogo from "@/assets/clients/avolta.png.asset.json";
+
+type Cliente = { name: string; logo?: string };
+
+const CLIENTES: Cliente[] = [
+  { name: "Avolta", logo: avoltaLogo.url },
+  { name: "World Duty Free" },
+  { name: "Grupo Konecta" },
+  { name: "Puntoform" },
+  { name: "GOZO" },
+  { name: "GRYKOS" },
+  { name: "Vitalgrana" },
+  { name: "Cink Venturing" },
+  { name: "Sherpa Tribe" },
 ];
 
 function Clientes() {
@@ -517,12 +521,12 @@ function Clientes() {
             background: "#f5f3ee",
           }}
         >
-          {CLIENTES.map((name) => (
+          {CLIENTES.map((c) => (
             <li
-              key={name}
+              key={c.name}
               className="flex items-center justify-center"
               style={{
-                minHeight: 120,
+                minHeight: 140,
                 borderRight: "1px solid #e5e5e7",
                 borderBottom: "1px solid #e5e5e7",
                 color: "#1d1d1f",
@@ -533,7 +537,16 @@ function Clientes() {
                 textAlign: "center",
               }}
             >
-              {name}
+              {c.logo ? (
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  loading="lazy"
+                  className="max-h-16 w-auto object-contain"
+                />
+              ) : (
+                c.name
+              )}
             </li>
           ))}
         </ul>
@@ -543,6 +556,7 @@ function Clientes() {
         >
           Logos de cliente pendientes de subir.
         </p>
+
       </div>
     </section>
   );
