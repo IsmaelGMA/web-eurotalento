@@ -77,9 +77,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EuroTalento · Estudio de Consultoría" },
+      { title: "Eurotalento · Estudio de Consultoría" },
       { name: "description", content: "Consultoría de RRHH: selección de talento, dirección interina de RRHH (tuHR®) y formación in company." },
-      { property: "og:title", content: "EuroTalento · Estudio de Consultoría" },
+      { property: "og:title", content: "Eurotalento · Estudio de Consultoría" },
       { property: "og:description", content: "Selección de talento, Interim Management de RRHH y formación in company." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

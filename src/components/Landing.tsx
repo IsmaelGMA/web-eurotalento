@@ -32,7 +32,7 @@ function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
           fontSize: 18,
         }}
       >
-        EuroTalento
+        Eurotalento
       </span>
       <span aria-hidden="true" style={{ color: subColor, fontSize: 14 }}>
         —
@@ -65,7 +65,7 @@ function HeroLogo() {
           lineHeight: 1,
         }}
       >
-        EuroTalento
+        Eurotalento
       </span>
       <span
         style={{
@@ -111,7 +111,7 @@ function Navbar() {
       }}
     >
       <nav className="container-core flex h-14 items-center justify-between">
-        <a href="#top" aria-label="EuroTalento inicio">
+        <a href="#top" aria-label="Eurotalento inicio">
           <Wordmark />
         </a>
         <ul className="hidden md:flex items-center gap-8">
@@ -730,7 +730,7 @@ function Footer() {
               fontSize: 18,
             }}
           >
-            EuroTalento
+            Eurotalento
           </span>
           <span
             style={{
@@ -747,7 +747,7 @@ function Footer() {
           <a href="#privacidad" style={{ color: "#d8d4c4" }}>
             Política de privacidad
           </a>
-          <span>© {new Date().getFullYear()} EuroTalento</span>
+          <span>© {new Date().getFullYear()} Eurotalento</span>
         </div>
       </div>
     </footer>
