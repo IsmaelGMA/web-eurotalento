@@ -490,6 +490,7 @@ import puntoformLogo from "@/assets/clients/puntoform.png.asset.json";
 import gozoLogo from "@/assets/clients/gozo.png.asset.json";
 import grykosLogo from "@/assets/clients/grykos.png.asset.json";
 import vitalgranaLogo from "@/assets/clients/vitalgrana.png.asset.json";
+import cinkLogo from "@/assets/clients/cink-venturing.png.asset.json";
 
 type Cliente = { name: string; logo?: string };
 
@@ -501,7 +502,7 @@ const CLIENTES: Cliente[] = [
   { name: "GOZO", logo: gozoLogo.url },
   { name: "GRYKOS", logo: grykosLogo.url },
   { name: "Vitalgrana", logo: vitalgranaLogo.url },
-  { name: "Cink Venturing" },
+  { name: "Cink Venturing", logo: cinkLogo.url },
   { name: "Sherpa Tribe" },
 ];
 
