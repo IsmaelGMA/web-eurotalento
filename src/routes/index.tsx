@@ -4,13 +4,13 @@ import { Landing } from "@/components/Landing";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "COREbusiness · Estudio de Consultoría" },
+      { title: "EuroTalento · Estudio de Consultoría" },
       {
         name: "description",
         content:
           "Consultoría de RRHH: selección de talento, dirección interina (tuHR®) y formación in company.",
       },
-      { property: "og:title", content: "COREbusiness · Estudio de Consultoría" },
+      { property: "og:title", content: "EuroTalento · Estudio de Consultoría" },
       {
         property: "og:description",
         content:
