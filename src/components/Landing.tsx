@@ -406,8 +406,8 @@ function Servicios() {
           items={[
             "Habilidades directivas",
             "Habilidades comerciales",
-            "Habilidades digitales · IA en reclutamiento y selección",
-            "Desarrollo de talento y gestión de la formación",
+            "Habilidades digitales · IA aplicada",
+            "Desarrollo de talento",
             "Gestión digital de RRHH para PYMEs",
             "Mentoring de carrera y empleo",
             "Empleabilidad para escuelas de negocio",
