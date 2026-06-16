@@ -96,19 +96,59 @@ export function useReveal() {
 }
 
 function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
+  const color = tone === "dark" ? "#1d1d1f" : "#ffffff";
+  const subColor = tone === "dark" ? "#6e6e73" : "#86868b";
   return (
-    <span className="inline-flex items-center">
-      <img
-        src={EUROTALENTO_LOGO}
-        alt="Eurotalento · Estudio de Consultoría"
+    <span className="inline-flex items-baseline gap-2">
+      <span
         style={{
-          height: 36,
-          width: "auto",
-          display: "block",
-          mixBlendMode: tone === "light" ? "screen" : "multiply",
+          color,
+          fontWeight: 600,
+          letterSpacing: "-0.02em",
+          fontSize: 18,
         }}
-      />
+      >
+        Eurotalento
+      </span>
+      <span aria-hidden="true" style={{ color: subColor, fontSize: 14 }}>
+        —
+      </span>
+      <span
+        className="hidden sm:inline"
+        style={{
+          color: subColor,
+          fontSize: 13,
+          fontWeight: 400,
+          letterSpacing: "-0.01em",
+        }}
+      >
+        Estudio de Consultoría
+      </span>
     </span>
+  );
+}
+
+function LogoBand() {
+  return (
+    <section
+      aria-label="Eurotalento · Estudio de Consultoría"
+      className="px-6 py-20 md:py-24"
+      style={{ background: "#ffffff" }}
+    >
+      <div className="container-core flex justify-center">
+        <img
+          src={EUROTALENTO_LOGO}
+          alt="Eurotalento · Estudio de Consultoría"
+          className="reveal"
+          style={{
+            width: "100%",
+            maxWidth: 560,
+            height: "auto",
+            display: "block",
+          }}
+        />
+      </div>
+    </section>
   );
 }
 
@@ -903,6 +943,7 @@ export function Landing() {
     <main lang="es">
       <Navbar />
       <Hero />
+      <LogoBand />
       <Servicios />
       <Enfoque />
       <Clientes />
