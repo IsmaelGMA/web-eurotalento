@@ -55,8 +55,8 @@ function AreasGrid() {
             <h3
               className="mt-2"
               style={{
-                color: "#1d1d1f",
-                fontSize: 15,
+                color: "#3a3a3c",
+                fontSize: 13.5,
                 lineHeight: 1.3,
                 letterSpacing: "-0.01em",
                 fontWeight: 600,
