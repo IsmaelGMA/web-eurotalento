@@ -195,8 +195,8 @@ function Hero() {
           style={{ color: "#d8d4c4" }}
         >
           Acompañamos a empresas a incorporar el mejor talento, a crear y desarrollar la función de
-          recursos humanos a través del Interim Management, e impartimos formación que mejora la
-          productividad y genera bienestar laboral.
+          recursos humanos desde 0, a través del servicio de Interim Management, e impartimos
+          formación a empresas para mejorar la productividad individual y de equipo.
         </p>
         <p
           className="reveal mt-6 italic"
