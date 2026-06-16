@@ -487,6 +487,7 @@ import avoltaLogo from "@/assets/clients/avolta.png.asset.json";
 import wdfLogo from "@/assets/clients/world-duty-free.png.asset.json";
 import konectaLogo from "@/assets/clients/konecta.png.asset.json";
 import puntoformLogo from "@/assets/clients/puntoform.png.asset.json";
+import gozoLogo from "@/assets/clients/gozo.png.asset.json";
 
 type Cliente = { name: string; logo?: string };
 
@@ -495,7 +496,7 @@ const CLIENTES: Cliente[] = [
   { name: "World Duty Free", logo: wdfLogo.url },
   { name: "Grupo Konecta", logo: konectaLogo.url },
   { name: "Puntoform", logo: puntoformLogo.url },
-  { name: "GOZO" },
+  { name: "GOZO", logo: gozoLogo.url },
   { name: "GRYKOS" },
   { name: "Vitalgrana" },
   { name: "Cink Venturing" },
