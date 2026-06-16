@@ -891,8 +891,8 @@ export function Landing() {
       <Navbar />
       <Hero />
       <Servicios />
-      <Clientes />
       <Enfoque />
+      <Clientes />
       <Contacto />
       <Footer />
     </main>
