@@ -550,7 +550,11 @@ function Clientes() {
                   src={c.logo}
                   alt={c.name}
                   loading="lazy"
-                  className="max-h-16 w-auto object-contain"
+                  className={`w-auto object-contain ${
+                    ["Avolta", "World Duty Free", "Grupo Konecta", "GOZO", "GRYKOS"].includes(c.name)
+                      ? "max-h-24"
+                      : "max-h-16"
+                  }`}
                 />
               ) : (
                 c.name
