@@ -1,4 +1,85 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import areaDirectivas from "@/assets/area-directivas.jpg";
+import areaComerciales from "@/assets/area-comerciales.jpg";
+import areaDigitales from "@/assets/area-digitales.jpg";
+import areaTalento from "@/assets/area-talento.jpg";
+import areaRrhhPymes from "@/assets/area-rrhh-pymes.jpg";
+import areaMentoring from "@/assets/area-mentoring.jpg";
+import areaEmpleabilidad from "@/assets/area-empleabilidad.jpg";
+
+type Area = { eyebrow: string; title: string; image: string };
+
+const AREAS: Area[] = [
+  { eyebrow: "Liderazgo", title: "Habilidades directivas", image: areaDirectivas },
+  { eyebrow: "Ventas", title: "Habilidades comerciales", image: areaComerciales },
+  { eyebrow: "Habilidades digitales", title: "IA aplicada en reclutamiento y selección", image: areaDigitales },
+  { eyebrow: "Desarrollo de talento", title: "Evaluación y técnicas de desarrollo", image: areaTalento },
+  { eyebrow: "PYMEs", title: "Gestión digital de RRHH", image: areaRrhhPymes },
+  { eyebrow: "Carrera", title: "Mentoring de carrera y empleo", image: areaMentoring },
+  { eyebrow: "Escuelas de negocio", title: "Empleabilidad", image: areaEmpleabilidad },
+];
+
+function AreasGrid() {
+  return (
+    <ul className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {AREAS.map((a) => (
+        <li
+          key={a.title}
+          className="group flex flex-col overflow-hidden rounded-[22px]"
+          style={{
+            background: "#f5f3ee",
+            border: "1px solid #e5e5e7",
+            transition: "transform 300ms ease, box-shadow 300ms ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateY(-4px)";
+            e.currentTarget.style.boxShadow = "0 20px 40px -20px rgba(0,0,0,0.18)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "none";
+            e.currentTarget.style.boxShadow = "none";
+          }}
+        >
+          <div className="px-7 pt-7">
+            <span
+              style={{
+                color: "#b55a30",
+                fontSize: 11,
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+              }}
+            >
+              {a.eyebrow}
+            </span>
+            <h3
+              className="mt-3"
+              style={{
+                color: "#1d1d1f",
+                fontSize: 22,
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
+                fontWeight: 600,
+              }}
+            >
+              {a.title}
+            </h3>
+          </div>
+          <div className="mt-4 flex flex-1 items-end justify-center px-6 pb-2">
+            <img
+              src={a.image}
+              alt=""
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="h-48 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+            />
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function useReveal() {
   useEffect(() => {
@@ -402,17 +483,7 @@ function Servicios() {
         <div className="mt-8">
           <SectionLabel>Áreas</SectionLabel>
         </div>
-        <Chips
-          items={[
-            "Habilidades directivas",
-            "Habilidades comerciales",
-            "Habilidades digitales: IA aplicada en reclutamiento y selección",
-            "Desarrollo de talento: evaluación y técnicas de desarrollo",
-            "Gestión digital de RRHH para PYMEs",
-            "Mentoring de carrera y empleo",
-            "Empleabilidad para escuelas de negocio",
-          ]}
-        />
+        <AreasGrid />
 
 
       </ServiceBlock>
