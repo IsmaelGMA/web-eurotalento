@@ -722,7 +722,16 @@ function Footer() {
     >
       <div className="container-core flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-2">
-          <Wordmark tone="light" />
+          <span
+            style={{
+              color: "#d8d4c4",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              fontSize: 18,
+            }}
+          >
+            COREbusiness
+          </span>
           <span
             style={{
               fontSize: 11,
