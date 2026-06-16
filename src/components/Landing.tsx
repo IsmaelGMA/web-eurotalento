@@ -402,15 +402,18 @@ function Servicios() {
         <div className="mt-8">
           <SectionLabel>Áreas</SectionLabel>
         </div>
-        <ul className="mt-4 space-y-2 body-lg list-disc pl-6" style={{ color: "#1d1d1f" }}>
-          <li>Habilidades directivas</li>
-          <li>Habilidades comerciales</li>
-          <li>Habilidades digitales: IA aplicada en reclutamiento y selección</li>
-          <li>Desarrollo de talento: evaluación y técnicas de desarrollo</li>
-          <li>Gestión digital de RRHH para PYMEs</li>
-          <li>Mentoring de carrera y empleo</li>
-          <li>Empleabilidad para escuelas de negocio</li>
-        </ul>
+        <Chips
+          items={[
+            "Habilidades directivas",
+            "Habilidades comerciales",
+            "Habilidades digitales: IA aplicada en reclutamiento y selección",
+            "Desarrollo de talento: evaluación y técnicas de desarrollo",
+            "Gestión digital de RRHH para PYMEs",
+            "Mentoring de carrera y empleo",
+            "Empleabilidad para escuelas de negocio",
+          ]}
+        />
+
 
       </ServiceBlock>
     </div>
