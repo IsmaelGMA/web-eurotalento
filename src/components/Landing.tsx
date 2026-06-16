@@ -568,12 +568,6 @@ function Clientes() {
             </li>
           ))}
         </ul>
-        <p
-          className="reveal mt-6 text-center"
-          style={{ color: "#6e6e73", fontSize: 13 }}
-        >
-          Logos de cliente pendientes de subir.
-        </p>
 
       </div>
     </section>
