@@ -553,7 +553,7 @@ function Clientes() {
                   alt={c.name}
                   loading="lazy"
                   className={`w-auto object-contain ${
-                    ["Avolta", "World Duty Free", "Grupo Konecta", "GOZO", "GRYKOS"].includes(c.name)
+                    ["Avolta", "World Duty Free", "Grupo Konecta", "GOZO", "GRYKOS", "Rotor Bike Components"].includes(c.name)
                       ? "max-h-24"
                       : "max-h-16"
                   }`}
