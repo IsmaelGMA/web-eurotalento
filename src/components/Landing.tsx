@@ -484,6 +484,7 @@ function Servicios() {
 }
 
 import avoltaLogo from "@/assets/clients/avolta.png.asset.json";
+import wdfLogo from "@/assets/clients/world-duty-free.png.asset.json";
 
 type Cliente = { name: string; logo?: string };
 
