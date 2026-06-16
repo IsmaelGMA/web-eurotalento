@@ -40,25 +40,25 @@ function AreasGrid() {
             e.currentTarget.style.boxShadow = "none";
           }}
         >
-          <div className="px-7 pt-7">
+          <div className="px-6 pt-6">
             <span
               style={{
                 color: "#b55a30",
-                fontSize: 11,
+                fontSize: 10,
                 fontWeight: 600,
-                letterSpacing: "0.18em",
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
               }}
             >
               {a.eyebrow}
             </span>
             <h3
-              className="mt-3"
+              className="mt-2"
               style={{
                 color: "#1d1d1f",
-                fontSize: 22,
-                lineHeight: 1.2,
-                letterSpacing: "-0.02em",
+                fontSize: 15,
+                lineHeight: 1.3,
+                letterSpacing: "-0.01em",
                 fontWeight: 600,
               }}
             >
