@@ -65,16 +65,8 @@ function AreasGrid() {
               {a.title}
             </h3>
           </div>
-          <div className="mt-4 flex flex-1 items-end justify-center px-6 pb-2">
-            <img
-              src={a.image}
-              alt=""
-              width={1024}
-              height={1024}
-              loading="lazy"
-              className="h-48 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.04]"
-            />
-          </div>
+          <div className="px-7 pb-7" />
+
         </li>
       ))}
     </ul>
