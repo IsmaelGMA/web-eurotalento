@@ -447,67 +447,52 @@ function Chips({ items }: { items: string[] }) {
 }
 
 function Servicios() {
+  const { t } = useLang();
   return (
     <div id="servicios">
       <ServiceBlock
         bg="white"
-        eyebrow="Servicios — 01"
-        title="Reclutamiento y selección de talento."
+        eyebrow={t.servicios.section1.eyebrow}
+        title={t.servicios.section1.title}
       >
         <p className="body-lg" style={{ color: "#1d1d1f" }}>
-          La incorporación de talento es un proceso clave de negocio con impacto directo en la
-          cuenta de resultados. Si no lo lidera un profesional capaz de abordar todas las fases con
-          garantías, la rentabilidad se resiente.
+          {t.servicios.section1.p1}
         </p>
         <p className="body-lg mt-5" style={{ color: "#6e6e73" }}>
-          Hacemos búsquedas de Middle Management y Dirección para los sectores de
-          Distribución/Retail y Gran Distribución, Gran Consumo, Hotel Management, Servicios y
-          Banca.
+          {t.servicios.section1.p2}
         </p>
         <BigNumber />
       </ServiceBlock>
 
       <ServiceBlock
         bg="alt"
-        eyebrow="Servicios — 02"
-        title="tuHR®"
-        subtitle="Dirección Interina de Recursos Humanos."
+        eyebrow={t.servicios.section2.eyebrow}
+        title={t.servicios.section2.title}
+        subtitle={t.servicios.section2.subtitle}
       >
         <p className="body-lg" style={{ color: "#1d1d1f" }}>
-          Un servicio clave para empresas que quieran abordar, de manera temporal, proyectos de
-          distinto alcance:
+          {t.servicios.section2.p1}
         </p>
-        <CleanList
-          items={[
-            "Creación y puesta en marcha de la función de recursos humanos en organizaciones con un volumen de negocio y de personal que exija una gestión profesionalizada.",
-            "Incorporación a tiempo parcial de un/a directivo/a de RRHH altamente cualificado/a para liderar la función.",
-            "Diseño y puesta en marcha de un proyecto específico de gestión.",
-            "Cobertura temporal de un/a directivo/a por sustitución o transición.",
-            "Liderazgo de procesos de gestión del cambio estratégico, productivo o comercial.",
-          ]}
-        />
+        <CleanList items={t.servicios.section2.items} />
       </ServiceBlock>
 
       <ServiceBlock
         bg="white"
-        eyebrow="Servicios — 03"
-        title="Formación In Company."
+        eyebrow={t.servicios.section3.eyebrow}
+        title={t.servicios.section3.title}
       >
         <p className="body-lg" style={{ color: "#1d1d1f" }}>
-          Diseñamos y ejecutamos acciones formativas ad hoc. Tras un trabajo de campo inicial donde
-          ahondamos en la necesidad concreta, desarrollamos las sesiones y los casos prácticos
-          poniendo en valor la casuística de la empresa y la experiencia de nuestros consultores.
+          {t.servicios.section3.p1}
         </p>
         <div className="mt-8">
-          <SectionLabel>Áreas</SectionLabel>
+          <SectionLabel>{t.servicios.section3.areasLabel}</SectionLabel>
         </div>
         <AreasGrid />
-
-
       </ServiceBlock>
     </div>
   );
 }
+
 
 import avoltaLogo from "@/assets/clients/avolta.png.asset.json";
 import wdfLogo from "@/assets/clients/world-duty-free.png.asset.json";
