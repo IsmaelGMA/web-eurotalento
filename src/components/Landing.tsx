@@ -1,25 +1,9 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import areaDirectivas from "@/assets/area-directivas.jpg";
-import areaComerciales from "@/assets/area-comerciales.jpg";
-import areaDigitales from "@/assets/area-digitales.jpg";
-import areaTalento from "@/assets/area-talento.jpg";
-import areaRrhhPymes from "@/assets/area-rrhh-pymes.jpg";
-import areaMentoring from "@/assets/area-mentoring.jpg";
-import areaEmpleabilidad from "@/assets/area-empleabilidad.jpg";
 import eurotalentoLogoAsset from "@/assets/eurotalento-logo-verde.jpg.asset.json";
 import { LangProvider, useLang } from "@/lib/i18n";
 
 const EUROTALENTO_LOGO = eurotalentoLogoAsset.url;
 
-const AREA_IMAGES = [
-  areaDirectivas,
-  areaComerciales,
-  areaDigitales,
-  areaTalento,
-  areaRrhhPymes,
-  areaMentoring,
-  areaEmpleabilidad,
-];
 
 
 function AreasGrid() {
