@@ -167,7 +167,27 @@ function HeroLogo() {
   );
 }
 
+function LangToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
+  const { lang, toggle, t } = useLang();
+  const color = tone === "dark" ? "#1d1d1f" : "#ffffff";
+  const border = tone === "dark" ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.4)";
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={t.nav.toggleAria}
+      className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-[12px] font-semibold tracking-wide"
+      style={{ color, border: `1px solid ${border}`, letterSpacing: "0.08em" }}
+    >
+      <span style={{ opacity: lang === "es" ? 1 : 0.45 }}>ES</span>
+      <span aria-hidden="true" style={{ opacity: 0.5 }}>/</span>
+      <span style={{ opacity: lang === "en" ? 1 : 0.45 }}>EN</span>
+    </button>
+  );
+}
+
 function Navbar() {
+  const { t } = useLang();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -179,9 +199,9 @@ function Navbar() {
   }, []);
 
   const links = [
-    { href: "#servicios", label: "Servicios" },
-    { href: "#enfoque", label: "Enfoque" },
-    { href: "#contacto", label: "Contacto" },
+    { href: "#servicios", label: t.nav.servicios },
+    { href: "#enfoque", label: t.nav.enfoque },
+    { href: "#contacto", label: t.nav.contacto },
   ];
 
   return (
@@ -196,40 +216,43 @@ function Navbar() {
       }}
     >
       <nav className="container-core flex h-14 items-center justify-between">
-        <a href="#top" aria-label="Eurotalento inicio" className="block h-6 w-6" />
-        <ul className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="text-[14px] font-medium tracking-tight"
-                style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <button
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md"
-          aria-label="Abrir menú"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">Menú</span>
-          <div className="relative h-3 w-5">
-            <span
-              className="absolute left-0 right-0 h-px bg-black transition-transform"
-              style={{ top: open ? "50%" : 0, transform: open ? "translateY(-50%) rotate(45deg)" : "none" }}
-            />
-            <span
-              className="absolute left-0 right-0 h-px bg-black transition-transform"
-              style={{ bottom: open ? "50%" : 0, transform: open ? "translateY(50%) rotate(-45deg)" : "none" }}
-            />
-          </div>
-        </button>
+        <a href="#top" aria-label="Eurotalento" className="block h-6 w-6" />
+        <div className="flex items-center gap-6">
+          <ul className="hidden md:flex items-center gap-8">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="text-[14px] font-medium tracking-tight"
+                  style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <LangToggle />
+          <button
+            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md"
+            aria-label="Menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">Menu</span>
+            <div className="relative h-3 w-5">
+              <span
+                className="absolute left-0 right-0 h-px bg-black transition-transform"
+                style={{ top: open ? "50%" : 0, transform: open ? "translateY(-50%) rotate(45deg)" : "none" }}
+              />
+              <span
+                className="absolute left-0 right-0 h-px bg-black transition-transform"
+                style={{ bottom: open ? "50%" : 0, transform: open ? "translateY(50%) rotate(-45deg)" : "none" }}
+              />
+            </div>
+          </button>
+        </div>
       </nav>
       {open && (
         <div className="md:hidden border-t border-black/5" style={{ backgroundColor: "rgba(255,255,255,0.95)", backdropFilter: "blur(20px)" }}>
@@ -252,6 +275,7 @@ function Navbar() {
     </header>
   );
 }
+
 
 function Hero() {
   return (
