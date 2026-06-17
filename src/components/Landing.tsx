@@ -223,10 +223,10 @@ function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="text-[14px] font-medium tracking-tight"
-                  style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  className="inline-flex items-center rounded-full px-4 py-1.5 text-[14px] font-medium tracking-tight"
+                  style={{ backgroundColor: "#5a5e4d", color: "#ffffff", transition: "background-color 200ms ease, opacity 150ms ease" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a4e3f")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a5e4d")}
                 >
                   {l.label}
                 </a>
