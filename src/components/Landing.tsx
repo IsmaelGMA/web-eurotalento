@@ -278,6 +278,7 @@ function Navbar() {
 
 
 function Hero() {
+  const { t } = useLang();
   return (
     <section
       id="top"
@@ -287,36 +288,29 @@ function Hero() {
       <div className="container-core flex flex-col items-center text-center">
         <h1
           className="h-display reveal max-w-[18ch]"
-          style={{
-            fontSize: "clamp(40px, 7vw, 72px)",
-            color: "#ffffff",
-          }}
+          style={{ fontSize: "clamp(40px, 7vw, 72px)", color: "#ffffff" }}
         >
-          El mejor talento para tu organización.
+          {t.hero.title}
         </h1>
-        <p
-          className="reveal body-lg mt-7 max-w-[58ch]"
-          style={{ color: "#d8d4c4" }}
-        >
-          Acompañamos a empresas a incorporar el mejor talento, a crear y desarrollar la función de
-          recursos humanos desde 0, a través del servicio de Interim Management, e impartimos
-          formación a empresas para mejorar la productividad individual y de equipo.
+        <p className="reveal body-lg mt-7 max-w-[58ch]" style={{ color: "#d8d4c4" }}>
+          {t.hero.body}
         </p>
         <p
           className="reveal mt-6 italic"
           style={{ color: "#ffffff", fontSize: 18, fontWeight: 400, letterSpacing: "-0.01em" }}
         >
-          Ni más, ni menos.
+          {t.hero.tagline}
         </p>
         <div className="reveal mt-12">
           <a href="#contacto" className="btn-core btn-dark">
-            Hablemos
+            {t.hero.cta}
           </a>
         </div>
       </div>
     </section>
   );
 }
+
 
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
