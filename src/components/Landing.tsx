@@ -367,10 +367,11 @@ function ServiceBlock({
 }
 
 function BigNumber() {
+  const { t } = useLang();
   return (
     <div
       className="reveal mt-20 flex flex-col items-center text-center"
-      aria-label="95% de adecuación persona/puesto"
+      aria-label="95%"
     >
       <span
         style={{
@@ -387,12 +388,12 @@ function BigNumber() {
         className="mt-6 max-w-[44ch]"
         style={{ color: "#6e6e73", fontSize: 15, lineHeight: 1.6 }}
       >
-        de adecuación persona/puesto, mediante tecnología en el reclutamiento y técnicas de
-        evaluación precisas.
+        {t.servicios.section1.big}
       </p>
     </div>
   );
 }
+
 
 function CleanList({ items }: { items: string[] }) {
   return (
