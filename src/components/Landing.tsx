@@ -218,7 +218,7 @@ function Navbar() {
                 href={l.href}
                 className="text-[14px] font-medium tracking-tight"
                 style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
                 {l.label}
