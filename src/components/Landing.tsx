@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import eurotalentoLogoAsset from "@/assets/eurotalento-logo-verde.jpg.asset.json";
+import eurotalentoLogoAsset from "@/assets/eurotalento-logo-07-verde.jpg.asset.json";
 import { LangProvider, useLang } from "@/lib/i18n";
 
 const EUROTALENTO_LOGO = eurotalentoLogoAsset.url;
