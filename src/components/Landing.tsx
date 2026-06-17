@@ -23,9 +23,10 @@ const AREA_IMAGES = [
 
 
 function AreasGrid() {
+  const { t } = useLang();
   return (
     <ul className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {AREAS.map((a) => (
+      {t.areas.map((a, i) => (
         <li
           key={a.title}
           className="group flex flex-col overflow-hidden rounded-[22px]"
@@ -69,12 +70,13 @@ function AreasGrid() {
             </h3>
           </div>
           <div className="px-6 pb-6" />
-
+          <img src={AREA_IMAGES[i]} alt="" aria-hidden="true" style={{ display: "none" }} />
         </li>
       ))}
     </ul>
   );
 }
+
 
 export function useReveal() {
   useEffect(() => {
