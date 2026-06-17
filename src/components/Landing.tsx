@@ -235,25 +235,25 @@ function Navbar() {
           <span className="sr-only">Menú</span>
           <div className="relative h-3 w-5">
             <span
-              className="absolute left-0 right-0 h-px bg-white transition-transform"
+              className="absolute left-0 right-0 h-px bg-black transition-transform"
               style={{ top: open ? "50%" : 0, transform: open ? "translateY(-50%) rotate(45deg)" : "none" }}
             />
             <span
-              className="absolute left-0 right-0 h-px bg-white transition-transform"
+              className="absolute left-0 right-0 h-px bg-black transition-transform"
               style={{ bottom: open ? "50%" : 0, transform: open ? "translateY(50%) rotate(-45deg)" : "none" }}
             />
           </div>
         </button>
       </nav>
       {open && (
-        <div className="md:hidden border-t border-white/10" style={{ backgroundColor: "rgba(90,94,77,0.96)", backdropFilter: "blur(20px)" }}>
+        <div className="md:hidden border-t border-black/5" style={{ backgroundColor: "rgba(255,255,255,0.95)", backdropFilter: "blur(20px)" }}>
           <ul className="container-core flex flex-col py-3">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   className="block py-3 text-[15px] font-medium"
-                  style={{ color: "#ffffff" }}
+                  style={{ color: "#1d1d1f" }}
                   onClick={() => setOpen(false)}
                 >
                   {l.label}
