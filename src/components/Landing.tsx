@@ -6,7 +6,7 @@ import areaTalento from "@/assets/area-talento.jpg";
 import areaRrhhPymes from "@/assets/area-rrhh-pymes.jpg";
 import areaMentoring from "@/assets/area-mentoring.jpg";
 import areaEmpleabilidad from "@/assets/area-empleabilidad.jpg";
-import eurotalentoLogoAsset from "@/assets/eurotalento-logo.png.asset.json";
+import eurotalentoLogoAsset from "@/assets/eurotalento-logo-verde.jpg.asset.json";
 
 const EUROTALENTO_LOGO = eurotalentoLogoAsset.url;
 
