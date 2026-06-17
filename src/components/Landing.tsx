@@ -276,11 +276,8 @@ function Hero() {
       style={{ background: "#5a5e4d", color: "#f5f3ee" }}
     >
       <div className="container-core flex flex-col items-center text-center">
-        <div className="reveal">
-          <HeroLogo />
-        </div>
         <h1
-          className="h-display reveal mt-14 max-w-[18ch]"
+          className="h-display reveal max-w-[18ch]"
           style={{
             fontSize: "clamp(40px, 7vw, 72px)",
             color: "#ffffff",
