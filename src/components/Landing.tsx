@@ -589,13 +589,7 @@ function Clientes() {
 
 
 function Enfoque() {
-  const labelStyle = {
-    color: "#d68a63",
-    fontSize: 11,
-    fontWeight: 500,
-    letterSpacing: "0.32em",
-    textTransform: "uppercase" as const,
-  };
+  const { t } = useLang();
   const phraseStyle = {
     fontSize: "clamp(28px, 3.6vw, 44px)",
     color: "#f5f3ee",
@@ -608,24 +602,20 @@ function Enfoque() {
     >
       <div className="container-core flex flex-col items-center gap-20 text-center">
         <div className="reveal">
-          <span
-            className="eyebrow"
-            style={{ color: "#d68a63", letterSpacing: "0.2em" }}
-          >
-            Enfoque
+          <span className="eyebrow" style={{ color: "#d68a63", letterSpacing: "0.2em" }}>
+            {t.enfoque.eyebrow}
           </span>
         </div>
         <div className="reveal flex flex-col items-center gap-5">
           <p className="h-display max-w-[24ch]" style={phraseStyle}>
-            Conocimiento <span style={{ color: "#d68a63" }}>+</span> más de 25 años de experiencia en
-            RRHH <span style={{ color: "#d68a63" }}>+</span> tecnología{" "}
-            <span style={{ color: "#d68a63" }}>=</span> soluciones «ad hoc» con impacto real en el negocio.
+            {t.enfoque.phrase}
           </p>
         </div>
       </div>
     </section>
   );
 }
+
 
 type FormState = {
   nombre: string;
