@@ -680,6 +680,7 @@ const inputStyle: React.CSSProperties = {
 };
 
 function Contacto() {
+  const { t } = useLang();
   const [data, setData] = useState<FormState>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [done, setDone] = useState(false);
@@ -690,14 +691,14 @@ function Contacto() {
 
   const validate = (s: FormState) => {
     const e: Partial<Record<keyof FormState, string>> = {};
-    if (!s.nombre.trim()) e.nombre = "Indica tu nombre y apellidos.";
-    if (!s.empresa.trim()) e.empresa = "Indica el nombre de tu empresa.";
-    if (!s.email.trim()) e.email = "Indica tu email.";
+    if (!s.nombre.trim()) e.nombre = t.contacto.errors.nombre;
+    if (!s.empresa.trim()) e.empresa = t.contacto.errors.empresa;
+    if (!s.email.trim()) e.email = t.contacto.errors.email;
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email.trim()))
-      e.email = "Introduce un email válido.";
-    if (!s.servicio) e.servicio = "Selecciona un servicio.";
-    if (!s.mensaje.trim()) e.mensaje = "Cuéntanos brevemente tu necesidad.";
-    if (!s.rgpd) e.rgpd = "Debes aceptar la política de privacidad.";
+      e.email = t.contacto.errors.emailInvalid;
+    if (!s.servicio) e.servicio = t.contacto.errors.servicio;
+    if (!s.mensaje.trim()) e.mensaje = t.contacto.errors.mensaje;
+    if (!s.rgpd) e.rgpd = t.contacto.errors.rgpd;
     return e;
   };
 
@@ -706,7 +707,6 @@ function Contacto() {
     const e = validate(data);
     setErrors(e);
     if (Object.keys(e).length === 0) {
-      // TODO: enviar a backend / servicio email
       setDone(true);
       setData(EMPTY);
       formRef.current?.reset();
@@ -717,15 +717,15 @@ function Contacto() {
     <section id="contacto" className="px-6 py-28 md:py-36" style={{ background: "#f5f5f7" }}>
       <div className="container-core">
         <div className="reveal text-center">
-          <SectionLabel>Contacto</SectionLabel>
+          <SectionLabel>{t.contacto.eyebrow}</SectionLabel>
           <h2
             className="h-display mt-5"
             style={{ fontSize: "clamp(40px, 6vw, 64px)", color: "#1d1d1f" }}
           >
-            Hablemos.
+            {t.contacto.title}
           </h2>
           <p className="body-lg mt-5 mx-auto max-w-[52ch]" style={{ color: "#6e6e73" }}>
-            Cuéntanos qué necesitas. Te responderemos con una propuesta clara, sin rodeos.
+            {t.contacto.body}
           </p>
         </div>
 
@@ -736,21 +736,18 @@ function Contacto() {
             role="status"
             aria-live="polite"
           >
-            <p
-              className="h-display"
-              style={{ fontSize: 28, color: "#1d1d1f" }}
-            >
-              Gracias.
+            <p className="h-display" style={{ fontSize: 28, color: "#1d1d1f" }}>
+              {t.contacto.thanks}
             </p>
             <p className="mt-3" style={{ color: "#6e6e73", fontSize: 17 }}>
-              Te responderemos lo antes posible.
+              {t.contacto.thanksBody}
             </p>
             <button
               type="button"
               onClick={() => setDone(false)}
               className="btn-core btn-dark mt-8"
             >
-              Enviar otro mensaje
+              {t.contacto.sendAnother}
             </button>
           </div>
         ) : (
@@ -761,7 +758,7 @@ function Contacto() {
             className="reveal mx-auto mt-16 grid max-w-[720px] gap-6"
           >
             <div className="grid gap-6 md:grid-cols-2">
-              <Field label="Nombre y apellidos" htmlFor="nombre" error={errors.nombre}>
+              <Field label={t.contacto.fields.nombre} htmlFor="nombre" error={errors.nombre}>
                 <input
                   id="nombre"
                   type="text"
@@ -772,7 +769,7 @@ function Contacto() {
                   style={inputStyle}
                 />
               </Field>
-              <Field label="Empresa" htmlFor="empresa" error={errors.empresa}>
+              <Field label={t.contacto.fields.empresa} htmlFor="empresa" error={errors.empresa}>
                 <input
                   id="empresa"
                   type="text"
@@ -786,7 +783,7 @@ function Contacto() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <Field label="Email" htmlFor="email" error={errors.email}>
+              <Field label={t.contacto.fields.email} htmlFor="email" error={errors.email}>
                 <input
                   id="email"
                   type="email"
@@ -797,7 +794,7 @@ function Contacto() {
                   style={inputStyle}
                 />
               </Field>
-              <Field label="Teléfono (opcional)" htmlFor="telefono">
+              <Field label={t.contacto.fields.telefono} htmlFor="telefono">
                 <input
                   id="telefono"
                   type="tel"
@@ -809,7 +806,7 @@ function Contacto() {
               </Field>
             </div>
 
-            <Field label="Servicio de interés" htmlFor="servicio" error={errors.servicio}>
+            <Field label={t.contacto.fields.servicio} htmlFor="servicio" error={errors.servicio}>
               <select
                 id="servicio"
                 required
@@ -818,16 +815,16 @@ function Contacto() {
                 style={{ ...inputStyle, appearance: "none", backgroundImage: "linear-gradient(45deg, transparent 50%, #6e6e73 50%), linear-gradient(135deg, #6e6e73 50%, transparent 50%)", backgroundPosition: "calc(100% - 20px) 22px, calc(100% - 14px) 22px", backgroundSize: "6px 6px, 6px 6px", backgroundRepeat: "no-repeat" }}
               >
                 <option value="" disabled>
-                  Selecciona una opción
+                  {t.contacto.fields.selectPlaceholder}
                 </option>
-                <option value="seleccion">Reclutamiento y selección</option>
-                <option value="tuhr">tuHR® — Dirección interina de RRHH</option>
-                <option value="formacion">Formación In Company</option>
-                <option value="otro">Otro</option>
+                <option value="seleccion">{t.contacto.fields.optSeleccion}</option>
+                <option value="tuhr">{t.contacto.fields.optTuhr}</option>
+                <option value="formacion">{t.contacto.fields.optFormacion}</option>
+                <option value="otro">{t.contacto.fields.optOtro}</option>
               </select>
             </Field>
 
-            <Field label="Mensaje" htmlFor="mensaje" error={errors.mensaje}>
+            <Field label={t.contacto.fields.mensaje} htmlFor="mensaje" error={errors.mensaje}>
               <textarea
                 id="mensaje"
                 required
@@ -847,11 +844,7 @@ function Contacto() {
                 style={{ marginTop: 4, width: 18, height: 18, accentColor: "#000000" }}
               />
               <label htmlFor="rgpd" style={{ color: "#1d1d1f", fontSize: 14, lineHeight: 1.5 }}>
-                He leído y acepto la{" "}
-                <a href="#privacidad" style={{ textDecoration: "underline" }}>
-                  política de privacidad
-                </a>{" "}
-                y el tratamiento de mis datos conforme al RGPD.
+                {t.contacto.fields.rgpd}
               </label>
             </div>
             {errors.rgpd && (
@@ -862,7 +855,7 @@ function Contacto() {
 
             <div className="pt-4">
               <button type="submit" className="btn-core btn-dark w-full md:w-auto">
-                Enviar
+                {t.contacto.fields.submit}
               </button>
             </div>
           </form>
@@ -873,20 +866,13 @@ function Contacto() {
 }
 
 function Footer() {
+  const { t } = useLang();
   return (
-    <footer
-      className="px-6 py-16"
-      style={{ background: "#5a5e4d", color: "#d8d4c4" }}
-    >
+    <footer className="px-6 py-16" style={{ background: "#5a5e4d", color: "#d8d4c4" }}>
       <div className="container-core flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-2">
           <span
-            style={{
-              color: "#d8d4c4",
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              fontSize: 18,
-            }}
+            style={{ color: "#d8d4c4", fontWeight: 600, letterSpacing: "-0.02em", fontSize: 18 }}
           >
             Eurotalento
           </span>
@@ -898,12 +884,12 @@ function Footer() {
               color: "#d68a63",
             }}
           >
-            Estudio de Consultoría
+            {t.footer.tagline}
           </span>
         </div>
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8 text-[13px]">
           <a href="#privacidad" style={{ color: "#d8d4c4" }}>
-            Política de privacidad
+            {t.footer.privacy}
           </a>
           <span>© {new Date().getFullYear()} Eurotalento</span>
         </div>
@@ -915,15 +901,18 @@ function Footer() {
 export function Landing() {
   useReveal();
   return (
-    <main lang="es">
-      <Navbar />
-      <LogoBand />
-      <Hero />
-      <Servicios />
-      <Enfoque />
-      <Clientes />
-      <Contacto />
-      <Footer />
-    </main>
+    <LangProvider>
+      <main>
+        <Navbar />
+        <LogoBand />
+        <Hero />
+        <Servicios />
+        <Enfoque />
+        <Clientes />
+        <Contacto />
+        <Footer />
+      </main>
+    </LangProvider>
   );
 }
+
