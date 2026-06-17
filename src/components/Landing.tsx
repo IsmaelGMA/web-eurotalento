@@ -10,7 +10,7 @@ function AreasGrid() {
   const { t } = useLang();
   return (
     <ul className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {t.areas.map((a, i) => (
+      {t.areas.map((a) => (
         <li
           key={a.title}
           className="group flex flex-col overflow-hidden rounded-[22px]"
