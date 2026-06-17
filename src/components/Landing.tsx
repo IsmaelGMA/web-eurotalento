@@ -1,31 +1,16 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import areaDirectivas from "@/assets/area-directivas.jpg";
-import areaComerciales from "@/assets/area-comerciales.jpg";
-import areaDigitales from "@/assets/area-digitales.jpg";
-import areaTalento from "@/assets/area-talento.jpg";
-import areaRrhhPymes from "@/assets/area-rrhh-pymes.jpg";
-import areaMentoring from "@/assets/area-mentoring.jpg";
-import areaEmpleabilidad from "@/assets/area-empleabilidad.jpg";
 import eurotalentoLogoAsset from "@/assets/eurotalento-logo-verde.jpg.asset.json";
+import { LangProvider, useLang } from "@/lib/i18n";
 
 const EUROTALENTO_LOGO = eurotalentoLogoAsset.url;
 
-type Area = { eyebrow: string; title: string; image: string };
 
-const AREAS: Area[] = [
-  { eyebrow: "Liderazgo", title: "Habilidades directivas", image: areaDirectivas },
-  { eyebrow: "Ventas", title: "Habilidades comerciales", image: areaComerciales },
-  { eyebrow: "Habilidades digitales", title: "IA aplicada en reclutamiento y selección", image: areaDigitales },
-  { eyebrow: "Desarrollo de talento", title: "Evaluación y técnicas de desarrollo", image: areaTalento },
-  { eyebrow: "PYMEs", title: "Gestión digital de RRHH", image: areaRrhhPymes },
-  { eyebrow: "Carrera", title: "Mentoring de carrera y empleo", image: areaMentoring },
-  { eyebrow: "Escuelas de negocio", title: "Empleabilidad", image: areaEmpleabilidad },
-];
 
 function AreasGrid() {
+  const { t } = useLang();
   return (
     <ul className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {AREAS.map((a) => (
+      {t.areas.map((a) => (
         <li
           key={a.title}
           className="group flex flex-col overflow-hidden rounded-[22px]"
@@ -75,6 +60,7 @@ function AreasGrid() {
     </ul>
   );
 }
+
 
 export function useReveal() {
   useEffect(() => {
@@ -181,7 +167,27 @@ function HeroLogo() {
   );
 }
 
+function LangToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
+  const { lang, toggle, t } = useLang();
+  const color = tone === "dark" ? "#1d1d1f" : "#ffffff";
+  const border = tone === "dark" ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.4)";
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={t.nav.toggleAria}
+      className="inline-flex items-center gap-1 rounded-full px-3 py-1 text-[12px] font-semibold tracking-wide"
+      style={{ color, border: `1px solid ${border}`, letterSpacing: "0.08em" }}
+    >
+      <span style={{ opacity: lang === "es" ? 1 : 0.45 }}>ES</span>
+      <span aria-hidden="true" style={{ opacity: 0.5 }}>/</span>
+      <span style={{ opacity: lang === "en" ? 1 : 0.45 }}>EN</span>
+    </button>
+  );
+}
+
 function Navbar() {
+  const { t } = useLang();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -193,9 +199,9 @@ function Navbar() {
   }, []);
 
   const links = [
-    { href: "#servicios", label: "Servicios" },
-    { href: "#enfoque", label: "Enfoque" },
-    { href: "#contacto", label: "Contacto" },
+    { href: "#servicios", label: t.nav.servicios },
+    { href: "#enfoque", label: t.nav.enfoque },
+    { href: "#contacto", label: t.nav.contacto },
   ];
 
   return (
@@ -210,40 +216,43 @@ function Navbar() {
       }}
     >
       <nav className="container-core flex h-14 items-center justify-between">
-        <a href="#top" aria-label="Eurotalento inicio" className="block h-6 w-6" />
-        <ul className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="text-[14px] font-medium tracking-tight"
-                style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <button
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md"
-          aria-label="Abrir menú"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">Menú</span>
-          <div className="relative h-3 w-5">
-            <span
-              className="absolute left-0 right-0 h-px bg-black transition-transform"
-              style={{ top: open ? "50%" : 0, transform: open ? "translateY(-50%) rotate(45deg)" : "none" }}
-            />
-            <span
-              className="absolute left-0 right-0 h-px bg-black transition-transform"
-              style={{ bottom: open ? "50%" : 0, transform: open ? "translateY(50%) rotate(-45deg)" : "none" }}
-            />
-          </div>
-        </button>
+        <a href="#top" aria-label="Eurotalento" className="block h-6 w-6" />
+        <div className="flex items-center gap-6">
+          <ul className="hidden md:flex items-center gap-8">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="text-[14px] font-medium tracking-tight"
+                  style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <LangToggle />
+          <button
+            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md"
+            aria-label="Menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">Menu</span>
+            <div className="relative h-3 w-5">
+              <span
+                className="absolute left-0 right-0 h-px bg-black transition-transform"
+                style={{ top: open ? "50%" : 0, transform: open ? "translateY(-50%) rotate(45deg)" : "none" }}
+              />
+              <span
+                className="absolute left-0 right-0 h-px bg-black transition-transform"
+                style={{ bottom: open ? "50%" : 0, transform: open ? "translateY(50%) rotate(-45deg)" : "none" }}
+              />
+            </div>
+          </button>
+        </div>
       </nav>
       {open && (
         <div className="md:hidden border-t border-black/5" style={{ backgroundColor: "rgba(255,255,255,0.95)", backdropFilter: "blur(20px)" }}>
@@ -267,7 +276,9 @@ function Navbar() {
   );
 }
 
+
 function Hero() {
+  const { t } = useLang();
   return (
     <section
       id="top"
@@ -277,36 +288,29 @@ function Hero() {
       <div className="container-core flex flex-col items-center text-center">
         <h1
           className="h-display reveal max-w-[18ch]"
-          style={{
-            fontSize: "clamp(40px, 7vw, 72px)",
-            color: "#ffffff",
-          }}
+          style={{ fontSize: "clamp(40px, 7vw, 72px)", color: "#ffffff" }}
         >
-          El mejor talento para tu organización.
+          {t.hero.title}
         </h1>
-        <p
-          className="reveal body-lg mt-7 max-w-[58ch]"
-          style={{ color: "#d8d4c4" }}
-        >
-          Acompañamos a empresas a incorporar el mejor talento, a crear y desarrollar la función de
-          recursos humanos desde 0, a través del servicio de Interim Management, e impartimos
-          formación a empresas para mejorar la productividad individual y de equipo.
+        <p className="reveal body-lg mt-7 max-w-[58ch]" style={{ color: "#d8d4c4" }}>
+          {t.hero.body}
         </p>
         <p
           className="reveal mt-6 italic"
           style={{ color: "#ffffff", fontSize: 18, fontWeight: 400, letterSpacing: "-0.01em" }}
         >
-          Ni más, ni menos.
+          {t.hero.tagline}
         </p>
         <div className="reveal mt-12">
           <a href="#contacto" className="btn-core btn-dark">
-            Hablemos
+            {t.hero.cta}
           </a>
         </div>
       </div>
     </section>
   );
 }
+
 
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
@@ -363,10 +367,11 @@ function ServiceBlock({
 }
 
 function BigNumber() {
+  const { t } = useLang();
   return (
     <div
       className="reveal mt-20 flex flex-col items-center text-center"
-      aria-label="95% de adecuación persona/puesto"
+      aria-label="95%"
     >
       <span
         style={{
@@ -383,12 +388,12 @@ function BigNumber() {
         className="mt-6 max-w-[44ch]"
         style={{ color: "#6e6e73", fontSize: 15, lineHeight: 1.6 }}
       >
-        de adecuación persona/puesto, mediante tecnología en el reclutamiento y técnicas de
-        evaluación precisas.
+        {t.servicios.section1.big}
       </p>
     </div>
   );
 }
+
 
 function CleanList({ items }: { items: string[] }) {
   return (
@@ -442,67 +447,52 @@ function Chips({ items }: { items: string[] }) {
 }
 
 function Servicios() {
+  const { t } = useLang();
   return (
     <div id="servicios">
       <ServiceBlock
         bg="white"
-        eyebrow="Servicios — 01"
-        title="Reclutamiento y selección de talento."
+        eyebrow={t.servicios.section1.eyebrow}
+        title={t.servicios.section1.title}
       >
         <p className="body-lg" style={{ color: "#1d1d1f" }}>
-          La incorporación de talento es un proceso clave de negocio con impacto directo en la
-          cuenta de resultados. Si no lo lidera un profesional capaz de abordar todas las fases con
-          garantías, la rentabilidad se resiente.
+          {t.servicios.section1.p1}
         </p>
         <p className="body-lg mt-5" style={{ color: "#6e6e73" }}>
-          Hacemos búsquedas de Middle Management y Dirección para los sectores de
-          Distribución/Retail y Gran Distribución, Gran Consumo, Hotel Management, Servicios y
-          Banca.
+          {t.servicios.section1.p2}
         </p>
         <BigNumber />
       </ServiceBlock>
 
       <ServiceBlock
         bg="alt"
-        eyebrow="Servicios — 02"
-        title="tuHR®"
-        subtitle="Dirección Interina de Recursos Humanos."
+        eyebrow={t.servicios.section2.eyebrow}
+        title={t.servicios.section2.title}
+        subtitle={t.servicios.section2.subtitle}
       >
         <p className="body-lg" style={{ color: "#1d1d1f" }}>
-          Un servicio clave para empresas que quieran abordar, de manera temporal, proyectos de
-          distinto alcance:
+          {t.servicios.section2.p1}
         </p>
-        <CleanList
-          items={[
-            "Creación y puesta en marcha de la función de recursos humanos en organizaciones con un volumen de negocio y de personal que exija una gestión profesionalizada.",
-            "Incorporación a tiempo parcial de un/a directivo/a de RRHH altamente cualificado/a para liderar la función.",
-            "Diseño y puesta en marcha de un proyecto específico de gestión.",
-            "Cobertura temporal de un/a directivo/a por sustitución o transición.",
-            "Liderazgo de procesos de gestión del cambio estratégico, productivo o comercial.",
-          ]}
-        />
+        <CleanList items={t.servicios.section2.items} />
       </ServiceBlock>
 
       <ServiceBlock
         bg="white"
-        eyebrow="Servicios — 03"
-        title="Formación In Company."
+        eyebrow={t.servicios.section3.eyebrow}
+        title={t.servicios.section3.title}
       >
         <p className="body-lg" style={{ color: "#1d1d1f" }}>
-          Diseñamos y ejecutamos acciones formativas ad hoc. Tras un trabajo de campo inicial donde
-          ahondamos en la necesidad concreta, desarrollamos las sesiones y los casos prácticos
-          poniendo en valor la casuística de la empresa y la experiencia de nuestros consultores.
+          {t.servicios.section3.p1}
         </p>
         <div className="mt-8">
-          <SectionLabel>Áreas</SectionLabel>
+          <SectionLabel>{t.servicios.section3.areasLabel}</SectionLabel>
         </div>
         <AreasGrid />
-
-
       </ServiceBlock>
     </div>
   );
 }
+
 
 import avoltaLogo from "@/assets/clients/avolta.png.asset.json";
 import wdfLogo from "@/assets/clients/world-duty-free.png.asset.json";
@@ -535,16 +525,17 @@ const CLIENTES: Cliente[] = [
 ];
 
 function Clientes() {
+  const { t } = useLang();
   return (
     <section id="clientes" className="px-6 py-28 md:py-36" style={{ background: "#ffffff" }}>
       <div className="container-core">
         <div className="reveal text-center">
-          <SectionLabel>Confianza</SectionLabel>
+          <SectionLabel>{t.clientes.eyebrow}</SectionLabel>
           <h2
             className="h-display mt-5 mx-auto max-w-[24ch]"
             style={{ fontSize: "clamp(32px, 4.4vw, 52px)", color: "#1d1d1f" }}
           >
-            Algunos de nuestros clientes.
+            {t.clientes.title}
           </h2>
         </div>
         <ul
@@ -598,13 +589,7 @@ function Clientes() {
 
 
 function Enfoque() {
-  const labelStyle = {
-    color: "#d68a63",
-    fontSize: 11,
-    fontWeight: 500,
-    letterSpacing: "0.32em",
-    textTransform: "uppercase" as const,
-  };
+  const { t } = useLang();
   const phraseStyle = {
     fontSize: "clamp(28px, 3.6vw, 44px)",
     color: "#f5f3ee",
@@ -617,24 +602,20 @@ function Enfoque() {
     >
       <div className="container-core flex flex-col items-center gap-20 text-center">
         <div className="reveal">
-          <span
-            className="eyebrow"
-            style={{ color: "#d68a63", letterSpacing: "0.2em" }}
-          >
-            Enfoque
+          <span className="eyebrow" style={{ color: "#d68a63", letterSpacing: "0.2em" }}>
+            {t.enfoque.eyebrow}
           </span>
         </div>
         <div className="reveal flex flex-col items-center gap-5">
           <p className="h-display max-w-[24ch]" style={phraseStyle}>
-            Conocimiento <span style={{ color: "#d68a63" }}>+</span> más de 25 años de experiencia en
-            RRHH <span style={{ color: "#d68a63" }}>+</span> tecnología{" "}
-            <span style={{ color: "#d68a63" }}>=</span> soluciones «ad hoc» con impacto real en el negocio.
+            {t.enfoque.phrase}
           </p>
         </div>
       </div>
     </section>
   );
 }
+
 
 type FormState = {
   nombre: string;
@@ -699,6 +680,7 @@ const inputStyle: React.CSSProperties = {
 };
 
 function Contacto() {
+  const { t } = useLang();
   const [data, setData] = useState<FormState>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [done, setDone] = useState(false);
@@ -709,14 +691,14 @@ function Contacto() {
 
   const validate = (s: FormState) => {
     const e: Partial<Record<keyof FormState, string>> = {};
-    if (!s.nombre.trim()) e.nombre = "Indica tu nombre y apellidos.";
-    if (!s.empresa.trim()) e.empresa = "Indica el nombre de tu empresa.";
-    if (!s.email.trim()) e.email = "Indica tu email.";
+    if (!s.nombre.trim()) e.nombre = t.contacto.errors.nombre;
+    if (!s.empresa.trim()) e.empresa = t.contacto.errors.empresa;
+    if (!s.email.trim()) e.email = t.contacto.errors.email;
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email.trim()))
-      e.email = "Introduce un email válido.";
-    if (!s.servicio) e.servicio = "Selecciona un servicio.";
-    if (!s.mensaje.trim()) e.mensaje = "Cuéntanos brevemente tu necesidad.";
-    if (!s.rgpd) e.rgpd = "Debes aceptar la política de privacidad.";
+      e.email = t.contacto.errors.emailInvalid;
+    if (!s.servicio) e.servicio = t.contacto.errors.servicio;
+    if (!s.mensaje.trim()) e.mensaje = t.contacto.errors.mensaje;
+    if (!s.rgpd) e.rgpd = t.contacto.errors.rgpd;
     return e;
   };
 
@@ -725,7 +707,6 @@ function Contacto() {
     const e = validate(data);
     setErrors(e);
     if (Object.keys(e).length === 0) {
-      // TODO: enviar a backend / servicio email
       setDone(true);
       setData(EMPTY);
       formRef.current?.reset();
@@ -736,15 +717,15 @@ function Contacto() {
     <section id="contacto" className="px-6 py-28 md:py-36" style={{ background: "#f5f5f7" }}>
       <div className="container-core">
         <div className="reveal text-center">
-          <SectionLabel>Contacto</SectionLabel>
+          <SectionLabel>{t.contacto.eyebrow}</SectionLabel>
           <h2
             className="h-display mt-5"
             style={{ fontSize: "clamp(40px, 6vw, 64px)", color: "#1d1d1f" }}
           >
-            Hablemos.
+            {t.contacto.title}
           </h2>
           <p className="body-lg mt-5 mx-auto max-w-[52ch]" style={{ color: "#6e6e73" }}>
-            Cuéntanos qué necesitas. Te responderemos con una propuesta clara, sin rodeos.
+            {t.contacto.body}
           </p>
         </div>
 
@@ -755,21 +736,18 @@ function Contacto() {
             role="status"
             aria-live="polite"
           >
-            <p
-              className="h-display"
-              style={{ fontSize: 28, color: "#1d1d1f" }}
-            >
-              Gracias.
+            <p className="h-display" style={{ fontSize: 28, color: "#1d1d1f" }}>
+              {t.contacto.thanks}
             </p>
             <p className="mt-3" style={{ color: "#6e6e73", fontSize: 17 }}>
-              Te responderemos lo antes posible.
+              {t.contacto.thanksBody}
             </p>
             <button
               type="button"
               onClick={() => setDone(false)}
               className="btn-core btn-dark mt-8"
             >
-              Enviar otro mensaje
+              {t.contacto.sendAnother}
             </button>
           </div>
         ) : (
@@ -780,7 +758,7 @@ function Contacto() {
             className="reveal mx-auto mt-16 grid max-w-[720px] gap-6"
           >
             <div className="grid gap-6 md:grid-cols-2">
-              <Field label="Nombre y apellidos" htmlFor="nombre" error={errors.nombre}>
+              <Field label={t.contacto.fields.nombre} htmlFor="nombre" error={errors.nombre}>
                 <input
                   id="nombre"
                   type="text"
@@ -791,7 +769,7 @@ function Contacto() {
                   style={inputStyle}
                 />
               </Field>
-              <Field label="Empresa" htmlFor="empresa" error={errors.empresa}>
+              <Field label={t.contacto.fields.empresa} htmlFor="empresa" error={errors.empresa}>
                 <input
                   id="empresa"
                   type="text"
@@ -805,7 +783,7 @@ function Contacto() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <Field label="Email" htmlFor="email" error={errors.email}>
+              <Field label={t.contacto.fields.email} htmlFor="email" error={errors.email}>
                 <input
                   id="email"
                   type="email"
@@ -816,7 +794,7 @@ function Contacto() {
                   style={inputStyle}
                 />
               </Field>
-              <Field label="Teléfono (opcional)" htmlFor="telefono">
+              <Field label={t.contacto.fields.telefono} htmlFor="telefono">
                 <input
                   id="telefono"
                   type="tel"
@@ -828,7 +806,7 @@ function Contacto() {
               </Field>
             </div>
 
-            <Field label="Servicio de interés" htmlFor="servicio" error={errors.servicio}>
+            <Field label={t.contacto.fields.servicio} htmlFor="servicio" error={errors.servicio}>
               <select
                 id="servicio"
                 required
@@ -837,16 +815,16 @@ function Contacto() {
                 style={{ ...inputStyle, appearance: "none", backgroundImage: "linear-gradient(45deg, transparent 50%, #6e6e73 50%), linear-gradient(135deg, #6e6e73 50%, transparent 50%)", backgroundPosition: "calc(100% - 20px) 22px, calc(100% - 14px) 22px", backgroundSize: "6px 6px, 6px 6px", backgroundRepeat: "no-repeat" }}
               >
                 <option value="" disabled>
-                  Selecciona una opción
+                  {t.contacto.fields.selectPlaceholder}
                 </option>
-                <option value="seleccion">Reclutamiento y selección</option>
-                <option value="tuhr">tuHR® — Dirección interina de RRHH</option>
-                <option value="formacion">Formación In Company</option>
-                <option value="otro">Otro</option>
+                <option value="seleccion">{t.contacto.fields.optSeleccion}</option>
+                <option value="tuhr">{t.contacto.fields.optTuhr}</option>
+                <option value="formacion">{t.contacto.fields.optFormacion}</option>
+                <option value="otro">{t.contacto.fields.optOtro}</option>
               </select>
             </Field>
 
-            <Field label="Mensaje" htmlFor="mensaje" error={errors.mensaje}>
+            <Field label={t.contacto.fields.mensaje} htmlFor="mensaje" error={errors.mensaje}>
               <textarea
                 id="mensaje"
                 required
@@ -866,11 +844,7 @@ function Contacto() {
                 style={{ marginTop: 4, width: 18, height: 18, accentColor: "#000000" }}
               />
               <label htmlFor="rgpd" style={{ color: "#1d1d1f", fontSize: 14, lineHeight: 1.5 }}>
-                He leído y acepto la{" "}
-                <a href="#privacidad" style={{ textDecoration: "underline" }}>
-                  política de privacidad
-                </a>{" "}
-                y el tratamiento de mis datos conforme al RGPD.
+                {t.contacto.fields.rgpd}
               </label>
             </div>
             {errors.rgpd && (
@@ -881,7 +855,7 @@ function Contacto() {
 
             <div className="pt-4">
               <button type="submit" className="btn-core btn-dark w-full md:w-auto">
-                Enviar
+                {t.contacto.fields.submit}
               </button>
             </div>
           </form>
@@ -892,20 +866,13 @@ function Contacto() {
 }
 
 function Footer() {
+  const { t } = useLang();
   return (
-    <footer
-      className="px-6 py-16"
-      style={{ background: "#5a5e4d", color: "#d8d4c4" }}
-    >
+    <footer className="px-6 py-16" style={{ background: "#5a5e4d", color: "#d8d4c4" }}>
       <div className="container-core flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-2">
           <span
-            style={{
-              color: "#d8d4c4",
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              fontSize: 18,
-            }}
+            style={{ color: "#d8d4c4", fontWeight: 600, letterSpacing: "-0.02em", fontSize: 18 }}
           >
             Eurotalento
           </span>
@@ -917,12 +884,12 @@ function Footer() {
               color: "#d68a63",
             }}
           >
-            Estudio de Consultoría
+            {t.footer.tagline}
           </span>
         </div>
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8 text-[13px]">
           <a href="#privacidad" style={{ color: "#d8d4c4" }}>
-            Política de privacidad
+            {t.footer.privacy}
           </a>
           <span>© {new Date().getFullYear()} Eurotalento</span>
         </div>
@@ -934,15 +901,18 @@ function Footer() {
 export function Landing() {
   useReveal();
   return (
-    <main lang="es">
-      <Navbar />
-      <LogoBand />
-      <Hero />
-      <Servicios />
-      <Enfoque />
-      <Clientes />
-      <Contacto />
-      <Footer />
-    </main>
+    <LangProvider>
+      <main>
+        <Navbar />
+        <LogoBand />
+        <Hero />
+        <Servicios />
+        <Enfoque />
+        <Clientes />
+        <Contacto />
+        <Footer />
+      </main>
+    </LangProvider>
   );
 }
+
