@@ -142,7 +142,7 @@ function LogoBand() {
           className="reveal"
           style={{
             width: "100%",
-            maxWidth: 560,
+            maxWidth: 880,
             height: "auto",
             display: "block",
           }}
