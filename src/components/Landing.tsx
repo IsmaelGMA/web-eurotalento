@@ -525,16 +525,17 @@ const CLIENTES: Cliente[] = [
 ];
 
 function Clientes() {
+  const { t } = useLang();
   return (
     <section id="clientes" className="px-6 py-28 md:py-36" style={{ background: "#ffffff" }}>
       <div className="container-core">
         <div className="reveal text-center">
-          <SectionLabel>Confianza</SectionLabel>
+          <SectionLabel>{t.clientes.eyebrow}</SectionLabel>
           <h2
             className="h-display mt-5 mx-auto max-w-[24ch]"
             style={{ fontSize: "clamp(32px, 4.4vw, 52px)", color: "#1d1d1f" }}
           >
-            Algunos de nuestros clientes.
+            {t.clientes.title}
           </h2>
         </div>
         <ul
