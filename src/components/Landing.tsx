@@ -70,7 +70,7 @@ function AreasGrid() {
             </h3>
           </div>
           <div className="px-6 pb-6" />
-          <img src={AREA_IMAGES[i]} alt="" aria-hidden="true" style={{ display: "none" }} />
+
         </li>
       ))}
     </ul>
