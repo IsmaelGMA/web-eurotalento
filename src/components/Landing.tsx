@@ -132,34 +132,20 @@ function LogoBand() {
   return (
     <section
       aria-label="Eurotalento · Estudio de Consultoría"
-      className="px-6 py-4 md:py-6"
+      className="px-6 py-6 md:py-8"
       style={{ background: "#ffffff" }}
     >
       <div className="container-core flex justify-center">
-        <div
+        <img
+          src={EUROTALENTO_LOGO}
+          alt="Eurotalento · Estudio de Consultoría"
+          className="mx-auto block"
           style={{
             width: "100%",
-            maxWidth: 880,
-            aspectRatio: "880 / 220",
-            overflow: "hidden",
-            position: "relative",
+            maxWidth: 720,
+            height: "auto",
           }}
-        >
-          <img
-            src={EUROTALENTO_LOGO}
-            alt="Eurotalento · Estudio de Consultoría"
-            className="reveal"
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "100%",
-              height: "auto",
-              display: "block",
-            }}
-          />
-        </div>
+        />
       </div>
     </section>
   );
