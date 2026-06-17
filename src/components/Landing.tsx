@@ -204,8 +204,8 @@ function Navbar() {
       style={{
         backdropFilter: "saturate(180%) blur(20px)",
         WebkitBackdropFilter: "saturate(180%) blur(20px)",
-        backgroundColor: scrolled ? "rgba(90,94,77,0.92)" : "rgba(90,94,77,0.82)",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.10)" : "1px solid transparent",
+        backgroundColor: scrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.7)",
+        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid transparent",
         transition: "background-color 250ms ease, border-color 250ms ease",
       }}
     >
@@ -217,8 +217,8 @@ function Navbar() {
               <a
                 href={l.href}
                 className="text-[14px] font-medium tracking-tight"
-                style={{ color: "#ffffff", transition: "opacity 150ms ease" }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
                 {l.label}
@@ -235,25 +235,25 @@ function Navbar() {
           <span className="sr-only">Menú</span>
           <div className="relative h-3 w-5">
             <span
-              className="absolute left-0 right-0 h-px bg-white transition-transform"
+              className="absolute left-0 right-0 h-px bg-black transition-transform"
               style={{ top: open ? "50%" : 0, transform: open ? "translateY(-50%) rotate(45deg)" : "none" }}
             />
             <span
-              className="absolute left-0 right-0 h-px bg-white transition-transform"
+              className="absolute left-0 right-0 h-px bg-black transition-transform"
               style={{ bottom: open ? "50%" : 0, transform: open ? "translateY(50%) rotate(-45deg)" : "none" }}
             />
           </div>
         </button>
       </nav>
       {open && (
-        <div className="md:hidden border-t border-white/10" style={{ backgroundColor: "rgba(90,94,77,0.96)", backdropFilter: "blur(20px)" }}>
+        <div className="md:hidden border-t border-black/5" style={{ backgroundColor: "rgba(255,255,255,0.95)", backdropFilter: "blur(20px)" }}>
           <ul className="container-core flex flex-col py-3">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   className="block py-3 text-[15px] font-medium"
-                  style={{ color: "#ffffff" }}
+                  style={{ color: "#1d1d1f" }}
                   onClick={() => setOpen(false)}
                 >
                   {l.label}
