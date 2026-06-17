@@ -205,15 +205,13 @@ function Navbar() {
       style={{
         backdropFilter: "saturate(180%) blur(20px)",
         WebkitBackdropFilter: "saturate(180%) blur(20px)",
-        backgroundColor: scrolled ? "rgba(91,107,72,0.92)" : "rgba(91,107,72,0.82)",
+        backgroundColor: scrolled ? "rgba(90,94,77,0.92)" : "rgba(90,94,77,0.82)",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.10)" : "1px solid transparent",
         transition: "background-color 250ms ease, border-color 250ms ease",
       }}
     >
       <nav className="container-core flex h-14 items-center justify-between">
-        <a href="#top" aria-label="Eurotalento inicio">
-          <Wordmark tone="light" />
-        </a>
+        <a href="#top" aria-label="Eurotalento inicio" className="block h-6 w-6" />
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.href}>
