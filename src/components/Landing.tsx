@@ -247,7 +247,7 @@ function Navbar() {
         </button>
       </nav>
       {open && (
-        <div className="md:hidden border-t border-white/10" style={{ backgroundColor: "rgba(91,107,72,0.96)", backdropFilter: "blur(20px)" }}>
+        <div className="md:hidden border-t border-white/10" style={{ backgroundColor: "rgba(90,94,77,0.96)", backdropFilter: "blur(20px)" }}>
           <ul className="container-core flex flex-col py-3">
             {links.map((l) => (
               <li key={l.href}>
