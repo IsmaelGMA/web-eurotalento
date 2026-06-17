@@ -132,19 +132,20 @@ function LogoBand() {
   return (
     <section
       aria-label="Eurotalento · Estudio de Consultoría"
-      className="px-6 py-20 md:py-24"
+      className="px-6 py-6 md:py-8"
       style={{ background: "#ffffff" }}
     >
       <div className="container-core flex justify-center">
         <img
           src={EUROTALENTO_LOGO}
           alt="Eurotalento · Estudio de Consultoría"
-          className="reveal"
+          className="reveal mx-auto"
           style={{
             width: "100%",
             maxWidth: 880,
             height: "auto",
             display: "block",
+            objectFit: "contain",
           }}
         />
       </div>
