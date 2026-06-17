@@ -204,8 +204,8 @@ function Navbar() {
       style={{
         backdropFilter: "saturate(180%) blur(20px)",
         WebkitBackdropFilter: "saturate(180%) blur(20px)",
-        backgroundColor: scrolled ? "rgba(90,94,77,0.92)" : "rgba(90,94,77,0.82)",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.10)" : "1px solid transparent",
+        backgroundColor: scrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.7)",
+        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid transparent",
         transition: "background-color 250ms ease, border-color 250ms ease",
       }}
     >
@@ -217,7 +217,7 @@ function Navbar() {
               <a
                 href={l.href}
                 className="text-[14px] font-medium tracking-tight"
-                style={{ color: "#ffffff", transition: "opacity 150ms ease" }}
+                style={{ color: "#1d1d1f", transition: "opacity 150ms ease" }}
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
