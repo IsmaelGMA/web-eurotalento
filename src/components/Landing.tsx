@@ -7,20 +7,20 @@ import areaRrhhPymes from "@/assets/area-rrhh-pymes.jpg";
 import areaMentoring from "@/assets/area-mentoring.jpg";
 import areaEmpleabilidad from "@/assets/area-empleabilidad.jpg";
 import eurotalentoLogoAsset from "@/assets/eurotalento-logo-verde.jpg.asset.json";
+import { LangProvider, useLang } from "@/lib/i18n";
 
 const EUROTALENTO_LOGO = eurotalentoLogoAsset.url;
 
-type Area = { eyebrow: string; title: string; image: string };
-
-const AREAS: Area[] = [
-  { eyebrow: "Liderazgo", title: "Habilidades directivas", image: areaDirectivas },
-  { eyebrow: "Ventas", title: "Habilidades comerciales", image: areaComerciales },
-  { eyebrow: "Habilidades digitales", title: "IA aplicada en reclutamiento y selección", image: areaDigitales },
-  { eyebrow: "Desarrollo de talento", title: "Evaluación y técnicas de desarrollo", image: areaTalento },
-  { eyebrow: "PYMEs", title: "Gestión digital de RRHH", image: areaRrhhPymes },
-  { eyebrow: "Carrera", title: "Mentoring de carrera y empleo", image: areaMentoring },
-  { eyebrow: "Escuelas de negocio", title: "Empleabilidad", image: areaEmpleabilidad },
+const AREA_IMAGES = [
+  areaDirectivas,
+  areaComerciales,
+  areaDigitales,
+  areaTalento,
+  areaRrhhPymes,
+  areaMentoring,
+  areaEmpleabilidad,
 ];
+
 
 function AreasGrid() {
   return (
