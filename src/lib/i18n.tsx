@@ -108,7 +108,7 @@ const es: Dict = {
     { eyebrow: "Desarrollo de talento", title: "Evaluación y técnicas de desarrollo" },
     { eyebrow: "PYMEs", title: "Gestión digital de RRHH" },
     { eyebrow: "Carrera", title: "Mentoring de carrera y empleo" },
-    { eyebrow: "Escuelas de negocio", title: "Empleabilidad" },
+    { eyebrow: "Escuelas de negocio", title: "Empleabilidad, gestión de carrera y orientación ejecutiva y laboral" },
   ],
   clientes: { eyebrow: "Confianza", title: "Algunos de nuestros clientes." },
   enfoque: {
@@ -207,7 +207,7 @@ const en: Dict = {
     { eyebrow: "Talent development", title: "Assessment and development techniques" },
     { eyebrow: "SMEs", title: "Digital HR management" },
     { eyebrow: "Career", title: "Career and employability mentoring" },
-    { eyebrow: "Business schools", title: "Employability" },
+    { eyebrow: "Business schools", title: "Employability, career management and executive & job orientation" },
   ],
   clientes: { eyebrow: "Trust", title: "Some of our clients." },
   enfoque: {
