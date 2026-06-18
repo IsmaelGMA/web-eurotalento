@@ -213,12 +213,12 @@ function Navbar() {
         transition: "border-color 250ms ease",
       }}
     >
-      <nav className="container-core flex h-24 items-center justify-between md:h-28">
+      <nav className="container-core flex h-40 items-center justify-between md:h-48">
         <a href="#top" aria-label="Eurotalento" className="block">
           <img
             src={EUROTALENTO_LOGO}
             alt="Eurotalento"
-            style={{ height: 80, width: "auto", display: "block" }}
+            style={{ height: 160, width: "auto", display: "block" }}
           />
         </a>
         <div className="flex items-center gap-6">
