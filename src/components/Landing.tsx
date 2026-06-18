@@ -47,7 +47,7 @@ function AreasGrid() {
                 fontSize: 13.5,
                 lineHeight: 1.3,
                 letterSpacing: "-0.01em",
-                fontWeight: 600,
+                fontWeight: 300,
               }}
             >
               {a.title}
