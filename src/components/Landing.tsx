@@ -617,25 +617,6 @@ function Enfoque() {
 }
 
 
-type FormState = {
-  nombre: string;
-  empresa: string;
-  email: string;
-  telefono: string;
-  servicio: string;
-  mensaje: string;
-  rgpd: boolean;
-};
-
-const EMPTY: FormState = {
-  nombre: "",
-  empresa: "",
-  email: "",
-  telefono: "",
-  servicio: "",
-  mensaje: "",
-  rgpd: false,
-};
 
 function Contacto() {
   const { t } = useLang();
