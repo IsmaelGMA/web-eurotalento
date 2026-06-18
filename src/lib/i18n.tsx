@@ -69,7 +69,7 @@ const es: Dict = {
   nav: { servicios: "Servicios", enfoque: "Enfoque", contacto: "Contacto", toggleAria: "Cambiar a inglés" },
   hero: {
     title: "El mejor talento para tu organización.",
-    body: "Acompañamos a empresas a incorporar el mejor talento, a crear y desarrollar la función de recursos humanos desde 0, a través del servicio de Interim Management, e impartimos formación a empresas para mejorar la productividad individual y de equipo.",
+    body: "Acompañamos a empresas a incorporar y gestionar talento, a ser tu Manager de RRHH externo a través del servicio de Interim Management, e impartimos formación a empresas, en formato In-Company o en abierto, para mejorar la productividad individual y de equipo, así como la empleabilidad de las personas.",
     tagline: "Ni más, ni menos.",
     cta: "Hablemos",
   },
