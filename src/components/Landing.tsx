@@ -286,13 +286,13 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-center justify-center px-6 pt-24 pb-20"
+      className="relative flex min-h-[100svh] items-center justify-center px-6 pt-48 pb-20 md:pt-56"
       style={{ background: "#5a5e4d", color: "#f5f3ee" }}
     >
       <div className="container-core flex flex-col items-center text-center">
         <h1
           className="h-display reveal max-w-[18ch]"
-          style={{ fontSize: "clamp(40px, 7vw, 72px)", color: "#ffffff" }}
+          style={{ fontSize: "clamp(32px, 5vw, 56px)", color: "#ffffff" }}
         >
           {t.hero.title}
         </h1>
