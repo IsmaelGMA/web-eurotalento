@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import eurotalentoLogoAsset from "@/assets/eurotalento-logo-07-verde.jpg.asset.json";
 import { LangProvider, useLang } from "@/lib/i18n";
 
