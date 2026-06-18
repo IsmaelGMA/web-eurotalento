@@ -824,7 +824,7 @@ export function Landing() {
     <LangProvider>
       <main>
         <Navbar />
-        <LogoBand />
+        
         <Hero />
         <Servicios />
         <Enfoque />
