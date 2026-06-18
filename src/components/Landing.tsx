@@ -637,233 +637,171 @@ const EMPTY: FormState = {
   rgpd: false,
 };
 
-function Field({
-  label,
-  htmlFor,
-  error,
-  children,
-  hint,
-}: {
-  label: string;
-  htmlFor: string;
-  error?: string;
-  hint?: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="flex flex-col gap-2">
-      <label htmlFor={htmlFor} className="eyebrow" style={{ color: "#6e6e73" }}>
-        {label}
-      </label>
-      {children}
-      {hint && !error && (
-        <span style={{ color: "#6e6e73", fontSize: 12 }}>{hint}</span>
-      )}
-      {error && (
-        <span role="alert" style={{ color: "#b00020", fontSize: 12 }}>
-          {error}
-        </span>
-      )}
-    </div>
-  );
-}
-
-const inputStyle: React.CSSProperties = {
-  background: "#ffffff",
-  border: "1px solid #d2d2d7",
-  borderRadius: 8,
-  padding: "14px 16px",
-  fontSize: 16,
-  color: "#1d1d1f",
-  width: "100%",
-  fontFamily: "inherit",
-};
-
 function Contacto() {
   const { t } = useLang();
-  const [data, setData] = useState<FormState>(EMPTY);
-  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
-  const [done, setDone] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [sent, setSent] = useState(false);
 
-  const update = <K extends keyof FormState>(k: K, v: FormState[K]) =>
-    setData((d) => ({ ...d, [k]: v }));
-
-  const validate = (s: FormState) => {
-    const e: Partial<Record<keyof FormState, string>> = {};
-    if (!s.nombre.trim()) e.nombre = t.contacto.errors.nombre;
-    if (!s.empresa.trim()) e.empresa = t.contacto.errors.empresa;
-    if (!s.email.trim()) e.email = t.contacto.errors.email;
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email.trim()))
-      e.email = t.contacto.errors.emailInvalid;
-    if (!s.servicio) e.servicio = t.contacto.errors.servicio;
-    if (!s.mensaje.trim()) e.mensaje = t.contacto.errors.mensaje;
-    if (!s.rgpd) e.rgpd = t.contacto.errors.rgpd;
-    return e;
-  };
-
-  const onSubmit = (ev: FormEvent) => {
-    ev.preventDefault();
-    const e = validate(data);
-    setErrors(e);
-    if (Object.keys(e).length === 0) {
-      setDone(true);
-      setData(EMPTY);
-      formRef.current?.reset();
-    }
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSent(true);
+    setTimeout(() => setSent(false), 4000);
+    (e.target as HTMLFormElement).reset();
   };
 
   return (
-    <section id="contacto" className="px-6 py-28 md:py-36" style={{ background: "#f5f5f7" }}>
-      <div className="container-core">
-        <div className="reveal text-center">
-          <SectionLabel>{t.contacto.eyebrow}</SectionLabel>
+    <section
+      id="contacto"
+      className="px-6 py-28 lg:px-10 lg:py-40"
+      style={{ background: "#eef0e8" }}
+    >
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-12">
+        <div className="reveal lg:col-span-5">
+          <p
+            className="mb-6 text-[12px] uppercase tracking-[0.25em]"
+            style={{ color: "#b55a30" }}
+          >
+            {t.contacto.eyebrow}
+          </p>
           <h2
-            className="h-display mt-5"
-            style={{ fontSize: "clamp(40px, 6vw, 64px)", color: "#1d1d1f" }}
+            className="text-[40px] font-light leading-[1.05] tracking-tight sm:text-[52px]"
+            style={{ color: "#1d1d1f" }}
           >
             {t.contacto.title}
           </h2>
-          <p className="body-lg mt-5 mx-auto max-w-[52ch]" style={{ color: "#6e6e73" }}>
+          <p
+            className="mt-6 max-w-md text-[16px] font-light leading-relaxed"
+            style={{ color: "#6e6e73" }}
+          >
             {t.contacto.body}
           </p>
+
+          <dl className="mt-12 space-y-4 text-[14px]" style={{ color: "#1d1d1f" }}>
+            <div className="flex gap-3">
+              <dt className="w-24" style={{ color: "#6e6e73" }}>
+                Email
+              </dt>
+              <dd>
+                <a
+                  href="mailto:hola@eurotalento.com"
+                  className="transition-colors"
+                  style={{ color: "#1d1d1f" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#b55a30")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#1d1d1f")}
+                >
+                  hola@eurotalento.com
+                </a>
+              </dd>
+            </div>
+            <div className="flex gap-3">
+              <dt className="w-24" style={{ color: "#6e6e73" }}>
+                Sedes
+              </dt>
+              <dd>Madrid · Asturias</dd>
+            </div>
+          </dl>
         </div>
 
-        {done ? (
-          <div
-            className="reveal mx-auto mt-16 max-w-[640px] rounded-xl bg-white p-12 text-center"
-            style={{ border: "1px solid #e5e5e7" }}
-            role="status"
-            aria-live="polite"
-          >
-            <p className="h-display" style={{ fontSize: 28, color: "#1d1d1f" }}>
-              {t.contacto.thanks}
-            </p>
-            <p className="mt-3" style={{ color: "#6e6e73", fontSize: 17 }}>
-              {t.contacto.thanksBody}
-            </p>
-            <button
-              type="button"
-              onClick={() => setDone(false)}
-              className="btn-core btn-dark mt-8"
-            >
-              {t.contacto.sendAnother}
-            </button>
-          </div>
-        ) : (
+        <div className="reveal lg:col-span-7">
           <form
-            ref={formRef}
             onSubmit={onSubmit}
-            noValidate
-            className="reveal mx-auto mt-16 grid max-w-[720px] gap-6"
+            className="rounded-2xl bg-white p-8 sm:p-10 lg:p-12"
           >
-            <div className="grid gap-6 md:grid-cols-2">
-              <Field label={t.contacto.fields.nombre} htmlFor="nombre" error={errors.nombre}>
-                <input
-                  id="nombre"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  value={data.nombre}
-                  onChange={(e) => update("nombre", e.target.value)}
-                  style={inputStyle}
-                />
-              </Field>
-              <Field label={t.contacto.fields.empresa} htmlFor="empresa" error={errors.empresa}>
-                <input
-                  id="empresa"
-                  type="text"
-                  autoComplete="organization"
-                  required
-                  value={data.empresa}
-                  onChange={(e) => update("empresa", e.target.value)}
-                  style={inputStyle}
-                />
-              </Field>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <ContactField label={t.contacto.fields.nombre} name="nombre" required />
+              <ContactField label={t.contacto.fields.email} name="email" type="email" required />
+              <ContactField
+                label={t.contacto.fields.empresa}
+                name="empresa"
+                className="sm:col-span-2"
+              />
+              <ContactField
+                label={t.contacto.fields.mensaje}
+                name="mensaje"
+                textarea
+                className="sm:col-span-2"
+                required
+              />
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              <Field label={t.contacto.fields.email} htmlFor="email" error={errors.email}>
-                <input
-                  id="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={data.email}
-                  onChange={(e) => update("email", e.target.value)}
-                  style={inputStyle}
-                />
-              </Field>
-              <Field label={t.contacto.fields.telefono} htmlFor="telefono">
-                <input
-                  id="telefono"
-                  type="tel"
-                  autoComplete="tel"
-                  value={data.telefono}
-                  onChange={(e) => update("telefono", e.target.value)}
-                  style={inputStyle}
-                />
-              </Field>
-            </div>
-
-            <Field label={t.contacto.fields.servicio} htmlFor="servicio" error={errors.servicio}>
-              <select
-                id="servicio"
-                required
-                value={data.servicio}
-                onChange={(e) => update("servicio", e.target.value)}
-                style={{ ...inputStyle, appearance: "none", backgroundImage: "linear-gradient(45deg, transparent 50%, #6e6e73 50%), linear-gradient(135deg, #6e6e73 50%, transparent 50%)", backgroundPosition: "calc(100% - 20px) 22px, calc(100% - 14px) 22px", backgroundSize: "6px 6px, 6px 6px", backgroundRepeat: "no-repeat" }}
-              >
-                <option value="" disabled>
-                  {t.contacto.fields.selectPlaceholder}
-                </option>
-                <option value="seleccion">{t.contacto.fields.optSeleccion}</option>
-                <option value="tuhr">{t.contacto.fields.optTuhr}</option>
-                <option value="formacion">{t.contacto.fields.optFormacion}</option>
-                <option value="otro">{t.contacto.fields.optOtro}</option>
-              </select>
-            </Field>
-
-            <Field label={t.contacto.fields.mensaje} htmlFor="mensaje" error={errors.mensaje}>
-              <textarea
-                id="mensaje"
-                required
-                rows={6}
-                value={data.mensaje}
-                onChange={(e) => update("mensaje", e.target.value)}
-                style={{ ...inputStyle, resize: "vertical", minHeight: 140 }}
-              />
-            </Field>
-
-            <div className="flex items-start gap-3 pt-2">
-              <input
-                id="rgpd"
-                type="checkbox"
-                checked={data.rgpd}
-                onChange={(e) => update("rgpd", e.target.checked)}
-                style={{ marginTop: 4, width: 18, height: 18, accentColor: "#000000" }}
-              />
-              <label htmlFor="rgpd" style={{ color: "#1d1d1f", fontSize: 14, lineHeight: 1.5 }}>
+            <div className="mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+              <p className="text-[12px]" style={{ color: "#6e6e73" }}>
                 {t.contacto.fields.rgpd}
-              </label>
-            </div>
-            {errors.rgpd && (
-              <span role="alert" style={{ color: "#b00020", fontSize: 12, marginTop: -8 }}>
-                {errors.rgpd}
-              </span>
-            )}
-
-            <div className="pt-4">
-              <button type="submit" className="btn-core btn-dark w-full md:w-auto">
-                {t.contacto.fields.submit}
+              </p>
+              <button
+                type="submit"
+                disabled={sent}
+                className="shrink-0 rounded-full px-7 py-3 text-[14px] font-medium text-white transition-all disabled:opacity-60"
+                style={{ background: "#b55a30" }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#5a5e4d")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "#b55a30")}
+              >
+                {sent ? `${t.contacto.thanks} ✓` : t.contacto.fields.submit}
               </button>
             </div>
           </form>
-        )}
+        </div>
       </div>
     </section>
   );
 }
+
+interface ContactFieldProps {
+  label: string;
+  name: string;
+  type?: string;
+  textarea?: boolean;
+  required?: boolean;
+  className?: string;
+}
+
+function ContactField({
+  label,
+  name,
+  type = "text",
+  textarea,
+  required,
+  className = "",
+}: ContactFieldProps) {
+  const base =
+    "peer block w-full border-b bg-transparent pt-6 pb-2 text-[15px] placeholder-transparent outline-none transition-colors";
+  const style: React.CSSProperties = {
+    borderColor: "rgba(29,29,31,0.15)",
+    color: "#1d1d1f",
+  };
+  return (
+    <div className={`relative ${className}`}>
+      {textarea ? (
+        <textarea
+          id={name}
+          name={name}
+          placeholder={label}
+          required={required}
+          rows={4}
+          className={`${base} resize-none focus:border-[#b55a30]`}
+          style={style}
+        />
+      ) : (
+        <input
+          id={name}
+          name={name}
+          type={type}
+          placeholder={label}
+          required={required}
+          className={`${base} focus:border-[#b55a30]`}
+          style={style}
+        />
+      )}
+      <label
+        htmlFor={name}
+        className="pointer-events-none absolute left-0 top-1 text-[11px] uppercase tracking-[0.18em] transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-[14px] peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:top-1 peer-focus:text-[11px] peer-focus:uppercase peer-focus:tracking-[0.18em] peer-focus:text-[#b55a30]"
+        style={{ color: "#6e6e73" }}
+      >
+        {label}
+      </label>
+    </div>
+  );
+}
+
 
 function Footer() {
   const { t } = useLang();
