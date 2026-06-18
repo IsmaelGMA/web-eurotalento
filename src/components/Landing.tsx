@@ -15,7 +15,7 @@ function AreasGrid() {
           key={a.title}
           className="group flex flex-col overflow-hidden rounded-[22px]"
           style={{
-            background: "#f5f3ee",
+            background: "#faf9f7",
             border: "1px solid #e5e5e7",
             transition: "transform 300ms ease, box-shadow 300ms ease",
           }}
@@ -31,7 +31,7 @@ function AreasGrid() {
           <div className="px-6 pt-6">
             <span
               style={{
-                color: "#b55a30",
+                color: "#9a7b4f",
                 fontSize: 10,
                 fontWeight: 600,
                 letterSpacing: "0.16em",
@@ -43,7 +43,7 @@ function AreasGrid() {
             <h3
               className="mt-2"
               style={{
-                color: "#3a3a3c",
+                color: "#5c4a30",
                 fontSize: 13.5,
                 lineHeight: 1.3,
                 letterSpacing: "-0.01em",
@@ -154,7 +154,7 @@ function HeroLogo() {
       </span>
       <span
         style={{
-          color: "#d68a63",
+          color: "#c4a875",
           fontSize: 11,
           fontWeight: 500,
           letterSpacing: "0.32em",
@@ -224,9 +224,9 @@ function Navbar() {
                 <a
                   href={l.href}
                   className="inline-flex items-center rounded-full px-4 py-1.5 text-[14px] font-medium tracking-tight"
-                  style={{ backgroundColor: "#5a5e4d", color: "#ffffff", transition: "background-color 200ms ease, opacity 150ms ease" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a4e3f")}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a5e4d")}
+                  style={{ backgroundColor: "#5c4a30", color: "#ffffff", transition: "background-color 200ms ease, opacity 150ms ease" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#3f3320")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5c4a30")}
                 >
                   {l.label}
                 </a>
@@ -283,7 +283,7 @@ function Hero() {
     <section
       id="top"
       className="relative flex min-h-[100svh] items-center justify-center px-6 pt-24 pb-20"
-      style={{ background: "#5a5e4d", color: "#f5f3ee" }}
+      style={{ background: "#5c4a30", color: "#faf9f7" }}
     >
       <div className="container-core flex flex-col items-center text-center">
         <h1
@@ -292,7 +292,7 @@ function Hero() {
         >
           {t.hero.title}
         </h1>
-        <p className="reveal body-lg mt-7 max-w-[58ch]" style={{ color: "#d8d4c4" }}>
+        <p className="reveal body-lg mt-7 max-w-[58ch]" style={{ color: "#f2ede4" }}>
           {t.hero.body}
         </p>
         <p
@@ -314,7 +314,7 @@ function Hero() {
 
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
-    <span className="eyebrow" style={{ color: "#b55a30" }}>
+    <span className="eyebrow" style={{ color: "#9a7b4f" }}>
       {children}
     </span>
   );
@@ -336,7 +336,7 @@ function ServiceBlock({
   return (
     <section
       className="px-6 py-28 md:py-36"
-      style={{ background: bg === "white" ? "#ffffff" : "#eef0e8" }}
+      style={{ background: bg === "white" ? "#ffffff" : "#f2ede4" }}
     >
       <div className="container-core grid gap-12 md:grid-cols-12 md:gap-16">
         <div className="md:col-span-5 reveal">
@@ -375,7 +375,7 @@ function BigNumber() {
     >
       <span
         style={{
-          color: "#b55a30",
+          color: "#9a7b4f",
           fontWeight: 600,
           letterSpacing: "-0.04em",
           fontSize: "clamp(120px, 20vw, 240px)",
@@ -544,7 +544,7 @@ function Clientes() {
             border: "1px solid #e5e5e7",
             borderRadius: 22,
             overflow: "hidden",
-            background: "#f5f3ee",
+            background: "#faf9f7",
           }}
         >
           {CLIENTES.map((c) => (
@@ -592,17 +592,17 @@ function Enfoque() {
   const { t } = useLang();
   const phraseStyle = {
     fontSize: "clamp(28px, 3.6vw, 44px)",
-    color: "#f5f3ee",
+    color: "#faf9f7",
   };
   return (
     <section
       id="enfoque"
       className="px-6 py-36 md:py-48"
-      style={{ background: "#5a5e4d", color: "#f5f3ee" }}
+      style={{ background: "#5c4a30", color: "#faf9f7" }}
     >
       <div className="container-core flex flex-col items-center gap-20 text-center">
         <div className="reveal">
-          <span className="eyebrow" style={{ color: "#d68a63", letterSpacing: "0.2em" }}>
+          <span className="eyebrow" style={{ color: "#c4a875", letterSpacing: "0.2em" }}>
             {t.enfoque.eyebrow}
           </span>
         </div>
@@ -868,11 +868,11 @@ function Contacto() {
 function Footer() {
   const { t } = useLang();
   return (
-    <footer className="px-6 py-16" style={{ background: "#5a5e4d", color: "#d8d4c4" }}>
+    <footer className="px-6 py-16" style={{ background: "#5c4a30", color: "#f2ede4" }}>
       <div className="container-core flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-2">
           <span
-            style={{ color: "#d8d4c4", fontWeight: 600, letterSpacing: "-0.02em", fontSize: 18 }}
+            style={{ color: "#f2ede4", fontWeight: 600, letterSpacing: "-0.02em", fontSize: 18 }}
           >
             Eurotalento
           </span>
@@ -881,15 +881,15 @@ function Footer() {
               fontSize: 11,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#d68a63",
+              color: "#c4a875",
             }}
           >
             {t.footer.tagline}
           </span>
-          <span style={{ color: "#d8d4c4", fontSize: 13 }}>Madrid · Asturias</span>
+          <span style={{ color: "#f2ede4", fontSize: 13 }}>Madrid · Asturias</span>
         </div>
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8 text-[13px]">
-          <a href="#privacidad" style={{ color: "#d8d4c4" }}>
+          <a href="#privacidad" style={{ color: "#f2ede4" }}>
             {t.footer.privacy}
           </a>
           <span>© {new Date().getFullYear()} Eurotalento</span>
