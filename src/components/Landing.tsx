@@ -216,7 +216,13 @@ function Navbar() {
       }}
     >
       <nav className="container-core flex h-14 items-center justify-between">
-        <a href="#top" aria-label="Eurotalento" className="block h-6 w-6" />
+        <a href="#top" aria-label="Eurotalento" className="block">
+          <img
+            src={EUROTALENTO_LOGO}
+            alt="Eurotalento"
+            style={{ height: 36, width: "auto", display: "block" }}
+          />
+        </a>
         <div className="flex items-center gap-6">
           <ul className="hidden md:flex items-center gap-8">
             {links.map((l) => (
@@ -824,7 +830,7 @@ export function Landing() {
     <LangProvider>
       <main>
         <Navbar />
-        <LogoBand />
+        
         <Hero />
         <Servicios />
         <Enfoque />
