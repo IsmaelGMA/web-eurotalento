@@ -30,7 +30,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-ink: #1d1d1f;
+  --color-ink: #3a3a3c;
   --color-ink-soft: #6e6e73;
   --color-surface: #ffffff;
   --color-surface-alt: #f5f5f7;
@@ -53,15 +53,15 @@
 :root {
   --radius: 0.5rem;
   --background: #ffffff;
-  --foreground: #1d1d1f;
+  --foreground: #3a3a3c;
   --card: #ffffff;
-  --card-foreground: #1d1d1f;
+  --card-foreground: #3a3a3c;
   --popover: #ffffff;
-  --popover-foreground: #1d1d1f;
+  --popover-foreground: #3a3a3c;
   --primary: #b55a30;
   --primary-foreground: #ffffff;
   --secondary: #f5f5f7;
-  --secondary-foreground: #1d1d1f;
+  --secondary-foreground: #3a3a3c;
   --muted: #f5f5f7;
   --muted-foreground: #6e6e73;
   --accent: #b55a30;
@@ -97,12 +97,12 @@
   }
 
   ::selection {
-    background: #1d1d1f;
+    background: #3a3a3c;
     color: #ffffff;
   }
 
   *:focus-visible {
-    outline: 2px solid #1d1d1f;
+    outline: 2px solid #3a3a3c;
     outline-offset: 2px;
     border-radius: 4px;
   }
