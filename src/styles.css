@@ -47,6 +47,7 @@
   --color-sage-deep: #5c4a30;
 
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Cormorant Garamond", "Cormorant", Georgia, serif;
 }
 
 :root {
