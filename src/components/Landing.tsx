@@ -886,6 +886,7 @@ function Footer() {
           >
             {t.footer.tagline}
           </span>
+          <span style={{ color: "#d8d4c4", fontSize: 13 }}>Madrid · Asturias</span>
         </div>
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8 text-[13px]">
           <a href="#privacidad" style={{ color: "#d8d4c4" }}>
