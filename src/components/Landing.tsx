@@ -208,19 +208,17 @@ function Navbar() {
     <header
       className="fixed inset-x-0 top-0 z-50"
       style={{
-        backdropFilter: "saturate(180%) blur(20px)",
-        WebkitBackdropFilter: "saturate(180%) blur(20px)",
-        backgroundColor: scrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.7)",
+        backgroundColor: "#ffffff",
         borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid transparent",
-        transition: "background-color 250ms ease, border-color 250ms ease",
+        transition: "border-color 250ms ease",
       }}
     >
-      <nav className="container-core flex h-14 items-center justify-between">
+      <nav className="container-core flex h-24 items-center justify-between md:h-28">
         <a href="#top" aria-label="Eurotalento" className="block">
           <img
             src={EUROTALENTO_LOGO}
             alt="Eurotalento"
-            style={{ height: 36, width: "auto", display: "block" }}
+            style={{ height: 80, width: "auto", display: "block" }}
           />
         </a>
         <div className="flex items-center gap-6">
