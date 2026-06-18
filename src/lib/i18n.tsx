@@ -115,9 +115,9 @@ const es: Dict = {
     eyebrow: "Enfoque",
     phrase: (
       <>
-        Conocimiento <span style={{ color: "#d68a63" }}>+</span> más de 25 años de experiencia en RRHH{" "}
-        <span style={{ color: "#d68a63" }}>+</span> tecnología <span style={{ color: "#d68a63" }}>=</span>{" "}
-        soluciones «ad hoc» con impacto real en el negocio.
+        Conocimiento <span style={{ color: "#d68a63" }}>+</span> más de 25 años de experiencia en RRHH y entornos internacionales{" "}
+        <span style={{ color: "#d68a63" }}>+</span> tecnología <span style={{ color: "#d68a63" }}>+</span> investigación{" "}
+        <span style={{ color: "#d68a63" }}>=</span> soluciones «ad hoc» con impacto real en el negocio.
       </>
     ),
   },
@@ -214,9 +214,9 @@ const en: Dict = {
     eyebrow: "Approach",
     phrase: (
       <>
-        Knowledge <span style={{ color: "#d68a63" }}>+</span> more than 25 years of HR experience{" "}
-        <span style={{ color: "#d68a63" }}>+</span> technology <span style={{ color: "#d68a63" }}>=</span>{" "}
-        bespoke solutions with real business impact.
+        Knowledge <span style={{ color: "#d68a63" }}>+</span> more than 25 years of HR experience in international environments{" "}
+        <span style={{ color: "#d68a63" }}>+</span> technology <span style={{ color: "#d68a63" }}>+</span> research{" "}
+        <span style={{ color: "#d68a63" }}>=</span> bespoke solutions with real business impact.
       </>
     ),
   },
