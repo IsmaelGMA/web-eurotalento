@@ -82,7 +82,7 @@ export function useReveal() {
 }
 
 function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
-  const color = tone === "dark" ? "#3a3a3c" : "#ffffff";
+  const color = tone === "dark" ? "#6e6e73" : "#ffffff";
   const subColor = tone === "dark" ? "#6e6e73" : "#86868b";
   return (
     <span className="inline-flex items-baseline gap-2">
@@ -169,7 +169,7 @@ function HeroLogo() {
 
 function LangToggle({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const { lang, toggle, t } = useLang();
-  const color = tone === "dark" ? "#3a3a3c" : "#ffffff";
+  const color = tone === "dark" ? "#6e6e73" : "#ffffff";
   const border = tone === "dark" ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.4)";
   return (
     <button
@@ -262,7 +262,7 @@ function Navbar() {
                 <a
                   href={l.href}
                   className="block py-3 text-[15px] font-medium"
-                  style={{ color: "#3a3a3c" }}
+                  style={{ color: "#6e6e73" }}
                   onClick={() => setOpen(false)}
                 >
                   {l.label}
@@ -347,7 +347,7 @@ function ServiceBlock({
           )}
           <h2
             className="h-display"
-            style={{ fontSize: "clamp(32px, 4.4vw, 52px)", color: "#3a3a3c" }}
+            style={{ fontSize: "clamp(32px, 4.4vw, 52px)", color: "#6e6e73" }}
           >
             {title}
           </h2>
@@ -416,7 +416,7 @@ function CleanList({ items }: { items: string[] }) {
           >
             {String(i + 1).padStart(2, "0")}
           </span>
-          <p style={{ color: "#3a3a3c", fontSize: 17, lineHeight: 1.6 }}>{t}</p>
+          <p style={{ color: "#6e6e73", fontSize: 17, lineHeight: 1.6 }}>{t}</p>
         </li>
       ))}
     </ul>
@@ -433,7 +433,7 @@ function Chips({ items }: { items: string[] }) {
           style={{
             background: "#ffffff",
             border: "1px solid #e5e5e7",
-            color: "#3a3a3c",
+            color: "#6e6e73",
             fontSize: 14,
             fontWeight: 500,
             letterSpacing: "-0.01em",
@@ -455,7 +455,7 @@ function Servicios() {
         eyebrow={t.servicios.section1.eyebrow}
         title={t.servicios.section1.title}
       >
-        <p className="body-lg" style={{ color: "#3a3a3c" }}>
+        <p className="body-lg" style={{ color: "#6e6e73" }}>
           {t.servicios.section1.p1}
         </p>
         <p className="body-lg mt-5" style={{ color: "#6e6e73" }}>
@@ -470,7 +470,7 @@ function Servicios() {
         title={t.servicios.section2.title}
         subtitle={t.servicios.section2.subtitle}
       >
-        <p className="body-lg" style={{ color: "#3a3a3c" }}>
+        <p className="body-lg" style={{ color: "#6e6e73" }}>
           {t.servicios.section2.p1}
         </p>
         <CleanList items={t.servicios.section2.items} />
@@ -481,7 +481,7 @@ function Servicios() {
         eyebrow={t.servicios.section3.eyebrow}
         title={t.servicios.section3.title}
       >
-        <p className="body-lg" style={{ color: "#3a3a3c" }}>
+        <p className="body-lg" style={{ color: "#6e6e73" }}>
           {t.servicios.section3.p1}
         </p>
         <div className="mt-8">
@@ -533,7 +533,7 @@ function Clientes() {
           <SectionLabel>{t.clientes.eyebrow}</SectionLabel>
           <h2
             className="h-display mt-5 mx-auto max-w-[24ch]"
-            style={{ fontSize: "clamp(32px, 4.4vw, 52px)", color: "#3a3a3c" }}
+            style={{ fontSize: "clamp(32px, 4.4vw, 52px)", color: "#6e6e73" }}
           >
             {t.clientes.title}
           </h2>
@@ -555,7 +555,7 @@ function Clientes() {
                 minHeight: 140,
                 borderRight: "1px solid #e5e5e7",
                 borderBottom: "1px solid #e5e5e7",
-                color: "#3a3a3c",
+                color: "#6e6e73",
                 fontSize: 18,
                 fontWeight: 600,
                 letterSpacing: "-0.01em",
@@ -645,7 +645,7 @@ function Contacto() {
           </p>
           <h2
             className="text-[40px] font-light leading-[1.05] tracking-tight sm:text-[52px]"
-            style={{ color: "#3a3a3c" }}
+            style={{ color: "#6e6e73" }}
           >
             {t.contacto.title}
           </h2>
@@ -656,7 +656,7 @@ function Contacto() {
             {t.contacto.body}
           </p>
 
-          <dl className="mt-12 space-y-4 text-[14px]" style={{ color: "#3a3a3c" }}>
+          <dl className="mt-12 space-y-4 text-[14px]" style={{ color: "#6e6e73" }}>
             <div className="flex gap-3">
               <dt className="w-24" style={{ color: "#6e6e73" }}>
                 Email
@@ -665,9 +665,9 @@ function Contacto() {
                 <a
                   href="mailto:hola@eurotalento.com"
                   className="transition-colors"
-                  style={{ color: "#3a3a3c" }}
+                  style={{ color: "#6e6e73" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#b55a30")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#3a3a3c")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#6e6e73")}
                 >
                   hola@eurotalento.com
                 </a>
@@ -747,7 +747,7 @@ function ContactField({
     "peer block w-full border-b bg-transparent pt-6 pb-2 text-[15px] placeholder-transparent outline-none transition-colors";
   const style: React.CSSProperties = {
     borderColor: "rgba(29,29,31,0.15)",
-    color: "#3a3a3c",
+    color: "#6e6e73",
   };
   return (
     <div className={`relative ${className}`}>
