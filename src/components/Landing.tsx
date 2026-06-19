@@ -678,7 +678,7 @@ function Contacto() {
               </dd>
             </div>
             <div className="flex gap-3">
-              <dd style={{ color: "#d68a63" }}>Madrid - Asturias</dd>
+              <dd style={{ color: "#b55a30" }}>Madrid - Asturias</dd>
             </div>
           </dl>
         </div>
