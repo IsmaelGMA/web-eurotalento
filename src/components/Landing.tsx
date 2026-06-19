@@ -678,10 +678,7 @@ function Contacto() {
               </dd>
             </div>
             <div className="flex gap-3">
-              <dt className="w-24" style={{ color: "#6e6e73" }}>
-                Sedes
-              </dt>
-              <dd>Madrid · Asturias</dd>
+              <dd>Madrid - Asturias</dd>
             </div>
           </dl>
         </div>
