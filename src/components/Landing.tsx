@@ -44,8 +44,8 @@ function AreasGrid() {
               className="mt-2"
               style={{
                 color: "#5a5e4d",
-                fontSize: 13.5,
-                lineHeight: 1.3,
+                fontSize: 12,
+                lineHeight: 1.35,
                 letterSpacing: "-0.01em",
                 fontWeight: 300,
               }}
