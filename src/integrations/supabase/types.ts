@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          empresa: string
+          id: string
+          mensaje: string
+          nombre: string
+          rgpd_accepted: boolean
+          servicio: string
+          telefono: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          empresa: string
+          id?: string
+          mensaje: string
+          nombre: string
+          rgpd_accepted?: boolean
+          servicio: string
+          telefono?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          empresa?: string
+          id?: string
+          mensaje?: string
+          nombre?: string
+          rgpd_accepted?: boolean
+          servicio?: string
+          telefono?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
