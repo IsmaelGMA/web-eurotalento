@@ -737,15 +737,21 @@ function Contacto() {
               </p>
               <button
                 type="submit"
-                disabled={sent}
+                disabled={sent || sending}
                 className="shrink-0 rounded-full px-7 py-3 text-[14px] font-medium text-white transition-all disabled:opacity-60"
                 style={{ background: "#b55a30" }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = "#5a5e4d")}
                 onMouseLeave={(e) => (e.currentTarget.style.background = "#b55a30")}
               >
-                {sent ? `${t.contacto.thanks} ✓` : t.contacto.fields.submit}
+                {sent ? `${t.contacto.thanks} ✓` : sending ? "…" : t.contacto.fields.submit}
               </button>
             </div>
+            {error && (
+              <p className="mt-4 text-[12px]" style={{ color: "#b55a30" }}>
+                {error}
+              </p>
+            )}
+
           </form>
         </div>
       </div>
