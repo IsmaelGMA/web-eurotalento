@@ -625,13 +625,37 @@ function Enfoque() {
 function Contacto() {
   const { t } = useLang();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    setSending(true);
+    setError(null);
+    const { error: dbError } = await supabase.from("contact_messages").insert({
+      nombre: String(fd.get("nombre") ?? "").trim(),
+      empresa: String(fd.get("empresa") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      servicio: "No especificado",
+      mensaje: String(fd.get("mensaje") ?? "").trim(),
+      rgpd_accepted: true,
+    });
+    setSending(false);
+    if (dbError) {
+      setError(
+        t.contacto.eyebrow === "Contact"
+          ? "We couldn't send your message. Please email hola@eurotalento.com."
+          : "No hemos podido enviar tu mensaje. Escríbenos a hola@eurotalento.com.",
+      );
+      return;
+    }
     setSent(true);
     setTimeout(() => setSent(false), 4000);
-    (e.target as HTMLFormElement).reset();
+    form.reset();
   };
+
 
   return (
     <section
