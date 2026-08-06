@@ -143,7 +143,7 @@ const es: Dict = {
       rgpd: (
         <>
           He leído y acepto la{" "}
-          <a href="#privacidad" style={{ textDecoration: "underline" }}>
+          <a href="/privacidad" style={{ textDecoration: "underline" }}>
             política de privacidad
           </a>{" "}
           y el tratamiento de mis datos conforme al RGPD.
@@ -242,7 +242,7 @@ const en: Dict = {
       rgpd: (
         <>
           I have read and accept the{" "}
-          <a href="#privacidad" style={{ textDecoration: "underline" }}>
+          <a href="/privacidad" style={{ textDecoration: "underline" }}>
             privacy policy
           </a>{" "}
           and the processing of my data under GDPR.

@@ -841,7 +841,7 @@ function Footer() {
           <span style={{ color: "#eef0e8", fontSize: 13 }}>Madrid · Asturias</span>
         </div>
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8 text-[13px]">
-          <a href="#privacidad" style={{ color: "#eef0e8" }}>
+          <a href="/privacidad" style={{ color: "#eef0e8" }}>
             {t.footer.privacy}
           </a>
           <span>© {new Date().getFullYear()} Eurotalento</span>
