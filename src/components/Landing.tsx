@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import eurotalentoLogoAsset from "@/assets/eurotalento-logo-07-verde.jpg.asset.json";
 import { LangProvider, useLang } from "@/lib/i18n";
+import { supabase } from "@/integrations/supabase/client";
+
 
 const EUROTALENTO_LOGO = eurotalentoLogoAsset.url;
 
@@ -625,13 +627,37 @@ function Enfoque() {
 function Contacto() {
   const { t } = useLang();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    setSending(true);
+    setError(null);
+    const { error: dbError } = await supabase.from("contact_messages").insert({
+      nombre: String(fd.get("nombre") ?? "").trim(),
+      empresa: String(fd.get("empresa") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      servicio: "No especificado",
+      mensaje: String(fd.get("mensaje") ?? "").trim(),
+      rgpd_accepted: true,
+    });
+    setSending(false);
+    if (dbError) {
+      setError(
+        t.contacto.eyebrow === "Contact"
+          ? "We couldn't send your message. Please email hola@eurotalento.com."
+          : "No hemos podido enviar tu mensaje. Escríbenos a hola@eurotalento.com.",
+      );
+      return;
+    }
     setSent(true);
     setTimeout(() => setSent(false), 4000);
-    (e.target as HTMLFormElement).reset();
+    form.reset();
   };
+
 
   return (
     <section
@@ -711,15 +737,21 @@ function Contacto() {
               </p>
               <button
                 type="submit"
-                disabled={sent}
+                disabled={sent || sending}
                 className="shrink-0 rounded-full px-7 py-3 text-[14px] font-medium text-white transition-all disabled:opacity-60"
                 style={{ background: "#b55a30" }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = "#5a5e4d")}
                 onMouseLeave={(e) => (e.currentTarget.style.background = "#b55a30")}
               >
-                {sent ? `${t.contacto.thanks} ✓` : t.contacto.fields.submit}
+                {sent ? `${t.contacto.thanks} ✓` : sending ? "…" : t.contacto.fields.submit}
               </button>
             </div>
+            {error && (
+              <p className="mt-4 text-[12px]" style={{ color: "#b55a30" }}>
+                {error}
+              </p>
+            )}
+
           </form>
         </div>
       </div>
@@ -809,7 +841,7 @@ function Footer() {
           <span style={{ color: "#eef0e8", fontSize: 13 }}>Madrid · Asturias</span>
         </div>
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-8 text-[13px]">
-          <a href="#privacidad" style={{ color: "#eef0e8" }}>
+          <a href="/privacidad" style={{ color: "#eef0e8" }}>
             {t.footer.privacy}
           </a>
           <span>© {new Date().getFullYear()} Eurotalento</span>
