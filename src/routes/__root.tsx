@@ -79,6 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Eurotalento · Estudio de Consultoría" },
       { name: "description", content: "Consultoría de RRHH: selección de talento, dirección interina de RRHH (tuHR®) y formación in company." },
+      { property: "og:site_name", content: "Eurotalento" },
       { property: "og:title", content: "Eurotalento · Estudio de Consultoría" },
       { property: "og:description", content: "Selección de talento, Interim Management de RRHH y formación in company." },
       { property: "og:type", content: "website" },
@@ -86,11 +87,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=Inter:wght@300;400;500;600;700&display=swap" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Eurotalento",
+          description:
+            "Estudio de consultoría de recursos humanos: selección de talento, dirección interina de RRHH y formación In Company.",
+          email: "hola@eurotalento.com",
+          areaServed: "ES",
+          address: [
+            { "@type": "PostalAddress", addressLocality: "Madrid", addressCountry: "ES" },
+            { "@type": "PostalAddress", addressLocality: "Asturias", addressCountry: "ES" },
+          ],
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

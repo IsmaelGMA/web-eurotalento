@@ -16,7 +16,13 @@ export const Route = createFileRoute("/privacidad")({
         content:
           "Cómo tratamos los datos personales recogidos en el formulario de contacto de Eurotalento.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/privacidad" },
+      { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "noindex, follow" },
     ],
+    links: [{ rel: "canonical", href: "/privacidad" }],
   }),
+
   component: Privacidad,
 });

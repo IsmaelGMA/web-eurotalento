@@ -4,19 +4,24 @@ import { Landing } from "@/components/Landing";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Eurotalento · Estudio de Consultoría" },
+      { title: "Eurotalento · Selección de talento, Interim HR y formación" },
       {
         name: "description",
         content:
-          "Consultoría de RRHH: selección de talento, dirección interina (tuHR®) y formación in company.",
+          "Consultoría de RRHH en Madrid y Asturias: reclutamiento y selección de Middle Management y Dirección, dirección interina (tuHR®) y formación In Company.",
       },
-      { property: "og:title", content: "Eurotalento · Estudio de Consultoría" },
+      { property: "og:title", content: "Eurotalento · Selección de talento, Interim HR y formación" },
       {
         property: "og:description",
         content:
-          "Selección de talento, Interim Management de RRHH y formación in company.",
+          "Acompañamos a empresas a incorporar y gestionar talento, con Interim Management de RRHH y formación In Company.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
+
   component: Landing,
 });
